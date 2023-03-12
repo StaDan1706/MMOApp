@@ -1,0 +1,200 @@
+[
+    {
+        "id": "1",
+        "img": "https://i.pinimg.com/736x/f6/86/ed/f686ed6a3b97369fe849aa9f91bfd011--pixel-art-video.jpg",
+        "name": "Glade",
+        "description": "Suggested Level : 1-5",
+        "background": "https://micc.garmory-cdn.cloud/obrazki/battle/007.jpg",
+        "difficulty": {
+            "easy": {
+                "monsterName": "deer",
+                "img": "https://micc.garmory-cdn.cloud/obrazki/npc/zwi/bestia54.gif",
+                "power": 1,
+                "rewards": {
+                    "exp": 20
+                }
+            },
+            "normal": {
+                "monsterName": "Snake",
+                "img": "https://micc.garmory-cdn.cloud/obrazki/npc/zwi/wonsz-zwykly.gif",
+                "power": 3,
+                "rewards": {
+                    "exp": 35
+                }
+            },
+            "hard": {
+                "monsterName": "Wolf",
+                "img": "https://micc.garmory-cdn.cloud/obrazki/npc/zwi/wilk_czarny1.gif",
+                "power": 5,
+                "rewards": {
+                    "exp": 50
+                }
+            }
+        }
+    },
+    {
+        "id": "2",
+        "img": "https://wallpapercrafter.com/desktop/143975-nature-ruins-castle-sky-clouds-Gothic-architecture-artwork-ruin-Andrey-Bakulin-trees-digital-art-arch-abandoned-Abbey-cathedral.jpg",
+        "name": "Abandoned Ruins",
+        "description": "Suggested Level : 6-10",
+        "background": "https://micc.garmory-cdn.cloud/obrazki/battle/014.jpg",
+        "difficulty": {
+            "easy": {
+                "monsterName": "Bear",
+                "img": "https://micc.garmory-cdn.cloud/obrazki/npc/zwi/mis_brunatny1.gif",
+                "power": 6 ,
+                "rewards": {
+                    "exp": 65
+                }
+            },
+            "normal": {
+                "monsterName": "Ghost",
+                "img": "https://micc.garmory-cdn.cloud/obrazki/npc/pot/bestia26.gif",
+                "power": 8 ,
+                "rewards": {
+                    "exp": 80
+                }
+            },
+            "hard": {
+                "monsterName": "Ghoul",
+                "img": "https://micc.garmory-cdn.cloud/obrazki/npc/hum/ghul1-a.gif",
+                "power": 10 ,
+                "rewards": {
+                    "exp": 95
+                }
+            }
+        }
+    },
+    {
+        "id": "3",
+        "img": "https://img.itch.zone/aW1nLzc4MjMwOTEucG5n/original/xeClWO.png",
+        "name": "Dead Forest",
+        "description": "Suggested Level : 11-15",
+        "background": "https://micc.garmory-cdn.cloud/obrazki/battle/008.jpg",
+        "difficulty": {
+            "easy": {
+                "monsterName": "warrior spirit",
+                "img": "https://micc.garmory-cdn.cloud/obrazki/npc/tru/tri_ghost3b.gif",
+                "power": 11 ,
+                "rewards": {
+                    "exp": 110
+                }
+            },
+            "normal": {
+                "monsterName": "Witch",
+                "img": "https://micc.garmory-cdn.cloud/obrazki/npc/kob/tri_witch_5a.gif",
+                "power": 13 ,
+                "rewards": {
+                    "exp": 125
+                }
+            },
+            "hard": {
+                "monsterName": "Abandoned soul",
+                "img": "https://micc.garmory-cdn.cloud/obrazki/npc/tru/tri_ghost4.gif",
+                "power": 15 ,
+                "rewards": {
+                    "exp": 150
+                }
+            }
+        }
+    },
+    {
+        "id": "4",
+        "img": "https://images.squarespace-cdn.com/content/v1/5b9fa2ebe7494034b702c195/1537203270160-Z0W4FSPNKEZP916G98C1/DARK_FORREST3.png",
+        "name": "Frozen Passage",
+        "description": "Suggested Level : 16-20",
+        "background": "https://micc.garmory-cdn.cloud/obrazki/battle/003.jpg",
+        "difficulty": {
+            "easy": {
+                "monsterName": "Snow Tiger",
+                "img": "https://micc.garmory-cdn.cloud/obrazki/npc/zwi/tygrys_sniez2.gif",
+                "power": 16 ,
+                "rewards": {
+                    "exp": 180
+                }
+            },
+            "normal": {
+                "monsterName": "Passage Guardian",
+                "img": "https://micc.garmory-cdn.cloud/obrazki/npc/hum/straznik-anda1b.gif",
+                "power": 18 ,
+                "rewards": {
+                    "exp": 215
+                }
+            },
+            "hard": {
+                "monsterName": "Icy Queen",
+                "img": "https://micc.garmory-cdn.cloud/obrazki/npc/e2/krolowa-sniegu.gif",
+                "power": 20 ,
+                "rewards": {
+                    "exp": 255
+                }
+            }
+        }
+    },
+    {
+        "id": "5",
+        "img": "https://thumbs.dreamstime.com/b/pixel-art-hell-background-detailed-vector-illustration-colorful-138236202.jpg",
+        "name": "Middle Of The Volcano",
+        "description": "Suggested Level : 21-25",
+        "background": "https://micc.garmory-cdn.cloud/obrazki/battle/004.jpg",
+        "difficulty": {
+            "easy": {
+                "monsterName": "Glimmer",
+                "img": "https://micc.garmory-cdn.cloud/obrazki/npc/pot/plom02.gif",
+                "power": 21 ,
+                "rewards": {
+                    "exp": 280
+                }
+            },
+            "normal": {
+                "monsterName": "Lava Golem",
+                "img": "https://micc.garmory-cdn.cloud/obrazki/npc/pot/lava_golem01-a.gif",
+                "power": 23 ,
+                "rewards": {
+                    "exp": 320
+                }
+            },
+            "hard": {
+                "monsterName": "volcano blacksmith",
+                "img": "https://micc.garmory-cdn.cloud/obrazki/npc/e2/worundriel02.gif",
+                "power": 25 ,
+                "rewards": {
+                    "exp": 360
+                }
+            }
+        }
+    },
+    {
+        "id": "6",
+        "img": "https://steam.pics/fons/1cb08c5b746927f5fdd21c76f1480689.png",
+        "name": "HELL",
+        "description": "Suggested Level : 26-30",
+        "background": "https://micc.garmory-cdn.cloud/obrazki/battle/027.jpg",
+        "difficulty": {
+            "easy": {
+                "monsterName": "bloody torturer",
+                "img": "https://micc.garmory-cdn.cloud/obrazki/npc/e2/sekta-gothardus.gif",
+                "power": 26 ,
+                "rewards": {
+                    "exp": 400
+                }
+            },
+            "normal": {
+                "monsterName": "heart eater",
+                "img": "https://micc.garmory-cdn.cloud/obrazki/npc/e2/sekta-zufulus.gif",
+                "power": 28 ,
+                "rewards": {
+                    "exp": 450
+                }
+            },
+            "hard": {
+                "monsterName": "ancient evil",
+                "img": "https://micc.garmory-cdn.cloud/obrazki/npc/tyt/archdemon.gif",
+                "power": 30 ,
+                "rewards": {
+                    "exp": 550
+                }
+            }
+        }
+    }
+]
