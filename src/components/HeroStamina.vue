@@ -30,4 +30,11 @@ h3 {
     font-size: 20px;
     font-weight: bold;
 }
+
+@media screen and (max-width: 350px) {
+
+    h3 {
+        font-size: 15px;
+    }
+}
 </style>

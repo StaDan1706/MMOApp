@@ -8,7 +8,7 @@ export const useHeroStore = defineStore("hero", {
             requiredExperience: 300,
             power: 1,
             stamina: 20,
-            seconds: 15,
+            seconds: 5,
             gold: 0,
             staminaIsRestoring: false,
         }
@@ -21,7 +21,7 @@ export const useHeroStore = defineStore("hero", {
                     setTimeout(this.tick, 1000)
                     this.seconds--
                 } else {
-                    this.seconds = 15
+                    this.seconds = 5
                     this.stamina++
                     this.tick()
                 }
@@ -83,5 +83,11 @@ export const useHeroStore = defineStore("hero", {
                 }
             }
         },
+    },
+    persist: {
+        afterRestore: (ctx) => {
+            ctx.store.staminaIsRestoring = false;
+            ctx.store.tick()
+        }
     }
 });

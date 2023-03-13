@@ -53,4 +53,20 @@ const navigateTo = () => {
 .location .location-text h2 {
     font-weight: bold;
 }
+
+@media screen and (max-width: 350px) {
+
+    h2 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    .location img {
+        height: 125px;
+    }
+
+}
 </style>

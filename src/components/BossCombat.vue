@@ -6,8 +6,7 @@ import { ref, watch } from "vue";
 import { useHeroStore } from "../stores/hero";
 import { useBossStore } from "../stores/boss";
 import { storeToRefs } from "pinia";
-const heroStore = useHeroStore()
-const { stamina, power, addExperience, addPowerScore, addGold, useStamina } = useHeroStore()
+const { heroStore, power, addPowerScore, addGold, useStamina } = useHeroStore()
 const { attackBoss } = useBossStore()
 const bossStore = useBossStore()
 const options = ref(q[0])
@@ -116,5 +115,12 @@ button {
 button:hover {
     background-color: black;
     color: white;
+}
+
+@media screen and (max-width: 350px) {
+    .boss-hp {
+        font-size: 20px;
+        width: 150px;
+    }
 }
 </style>

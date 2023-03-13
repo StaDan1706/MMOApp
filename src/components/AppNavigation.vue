@@ -49,4 +49,16 @@ const navigateBack = () => {
     color: black;
     border: 1px solid black;
 }
+
+@media screen and (max-width: 750px) {
+    .menu {
+        width: 100%;
+        left: 0;
+        top: 0;
+        flex-direction: row;
+        justify-content: center;
+        margin: 30px auto 0px;
+        position: relative;
+    }
+}
 </style>

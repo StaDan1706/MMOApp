@@ -35,4 +35,16 @@ h1 {
     transition: .5s linear;
 }
 
+@media screen and (max-width: 350px) {
+    h1 {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .experience-bar {
+        width: 200px;
+        height: 10px;
+    }
+}
+
 </style>

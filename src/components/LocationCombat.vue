@@ -1,14 +1,16 @@
 <script setup>
 import Difficulty from "./LocationDifficulty.vue"
 import { useRoute } from "vue-router";
+import { storeToRefs } from "pinia";
 import { ref, defineProps } from 'vue';
 import { useHeroStore } from "../stores/hero";
-const { level, experience, power, stamina, attack } = useHeroStore()
+const { store, attack } = useHeroStore()
+// const { level, experience, power, stamina } = storeToRefs(store)
 const { options } = defineProps(['options'])
 const route = useRoute()
 const chosenDifficulty = ref()
 const routeId = options[route.params.id - 1]
-
+const routeDif = routeId.difficulty
 
 const onOptionSelected = (difficulty) => {
     chosenDifficulty.value = difficulty
@@ -20,17 +22,17 @@ const quitFromBattle = () => {
 
 </script>
 <template>
-    <Difficulty v-if="!chosenDifficulty" @difficulty="onOptionSelected" :options="options"/>
+    <Difficulty v-if="!chosenDifficulty" @difficulty="onOptionSelected" :options="options" />
 
     <div v-else class="combat-view" :style="{ backgroundImage: `url(' ${routeId.background} ')` }">
-        <img :src="routeId.difficulty[chosenDifficulty].img">
-        <h3>{{ routeId.difficulty[chosenDifficulty].monsterName }}</h3>
+        <img :src="routeDif[chosenDifficulty].img">
+        <h3>{{ routeDif[chosenDifficulty].monsterName }}</h3>
         <div class="options-container">
             <button @click="quitFromBattle" class="quit">Quit</button>
-            <button @click="attack(routeId.difficulty[chosenDifficulty].power,routeId.difficulty[chosenDifficulty].rewards.exp)" class="fight">Fight</button>
+            <button @click="attack(routeDif[chosenDifficulty].power, routeDif[chosenDifficulty].rewards.exp)"
+                class="fight">Fight</button>
         </div>
     </div>
-    
 </template>
 <style scoped>
 .combat-view {
@@ -45,6 +47,7 @@ const quitFromBattle = () => {
     margin: 10px auto;
     background-color: rgb(110, 72, 72);
     background-size: contain;
+    margin-bottom: 70px;
 }
 
 img {
@@ -95,5 +98,33 @@ button:hover {
 
 .fight {
     border-bottom-right-radius: 16px;
+}
+
+.allert-container {
+    z-index: 9999;
+    background-color: rgb(35, 31, 31);
+    padding: 5px 60px;
+    font-weight: 900;
+    font-size: 24px;
+    color: green;
+    border-radius: 16px;
+    position: absolute;
+    top: 0;
+    border: white 2px solid;
+}
+
+p {
+    text-transform: uppercase;
+}
+
+@media screen and (max-width: 750px) {
+    .combat-view {
+        width: 250px;
+        height: 250px;
+    }
+
+    h3 {
+        margin-bottom: 60px;
+    }
 }
 </style>

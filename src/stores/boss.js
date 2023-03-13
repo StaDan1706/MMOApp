@@ -10,5 +10,6 @@ export const useBossStore = defineStore("boss", {
         attackBoss(val) {
             this.hp -= val
         },
-    }
+    },
+    persist: true,
 });

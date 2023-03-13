@@ -25,4 +25,11 @@ h4 {
     color: rgb(204, 75, 75);
     font-weight: bold
 }
+
+@media screen and (max-width: 350px) {
+    .power-score,
+    .gold {
+        font-size: 15px;
+    }
+}
 </style>

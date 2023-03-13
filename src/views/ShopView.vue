@@ -38,7 +38,7 @@ const enter = (el) => {
             <TransitionGroup appear @before-enter="beforeEnter" @enter="enter">
                 <button @click="buyStamina(option)" v-for="option, index in options" :key="option" :data-index="index"> Buy
                     {{ option }}
-                    stamina ({{ option * 10 }} gold)</button>
+                    stamina <p>({{ option * 10 }} gold)</p></button>
             </TransitionGroup>
         </div>
     </div>
@@ -54,7 +54,7 @@ const enter = (el) => {
 }
 
 .shop-options {
-    margin-top: 40px;
+    margin-top: 20px;
     display: inherit;
     flex-direction: column;
 }
@@ -63,9 +63,9 @@ button {
     text-transform: uppercase;
     border: 1px solid bisque;
     border-radius: 16px;
-    padding: 10px 90px;
+    padding: 10px 60px;
     margin: 10px;
-    font-size: 20px;
+    font-size: 15px;
     cursor: pointer;
     transition-property: color, background-color;
     transition-duration: .3s;
