@@ -7,16 +7,16 @@ import Location from '../components/AppOption.vue';
 
 
 const beforeEnter = (el) => {
-  el.style.opacity = 0;
-  el.style.transform = "translateY(60px)";
+    el.style.opacity = 0;
+    el.style.transform = "translateY(60px)";
 }
 const enter = (el) => {
-  gsap.to(el, {
-    y: 0,
-    opacity: 1,
-    duration: 0.4,
-    delay: el.dataset.index * 0.1
-  })
+    gsap.to(el, {
+        y: 0,
+        opacity: 1,
+        duration: 0.4,
+        delay: el.dataset.index * 0.1
+    })
 }
 const options = ref(q)
 </script>
@@ -28,10 +28,10 @@ const options = ref(q)
         </header>
         <div class="options-container">
             <TransitionGroup appear @before-enter="beforeEnter" @enter="enter">
-                <Location v-for="option, index in options" :key="option" :option="option" :isMenu="true" :data-index="index" />
+                <Location v-for="option, index in options" :key="option" :option="option" :isMenu="true"
+                    :data-index="index" />
             </TransitionGroup>
         </div>
-
     </div>
 </template>
 

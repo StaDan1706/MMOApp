@@ -83,4 +83,10 @@ const enter = (el) => {
 p {
   font-size: 15px;
 }
+
+@media screen and (max-width: 350px) {
+  .choice {
+    max-width: 220px;
+  }
+}
 </style>

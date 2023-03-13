@@ -1,14 +1,16 @@
 <script setup>
-
+import HeroLevel from "./HeroLevel.vue";
 import Navigation from "./AppNavigation.vue"
 import Stamina from "./HeroStamina.vue"
-import Level from "./HeroLevel.vue"
+import Level from "./HeroExperience.vue"
+
 
 </script>
 
 <template>
     <header>
         <Navigation />
+        <HeroLevel />
         <div class="hero">
             <Level />
             <Stamina />
@@ -19,6 +21,7 @@ import Level from "./HeroLevel.vue"
 <style scoped>
 header {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
