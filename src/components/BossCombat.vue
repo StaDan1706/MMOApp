@@ -2,10 +2,10 @@
 import BossDefeated from "./BossDefeated.vue"
 import { bossData } from "../data/appConfig.js"
 import { ref, watch } from "vue";
-
 import { useHeroStore } from "../stores/hero";
 import { useBossStore } from "../stores/boss";
 import { storeToRefs } from "pinia";
+
 const { power, addPowerScore, addGold, useStamina } = useHeroStore()
 const { attackBoss } = useBossStore()
 const bossStore = useBossStore()

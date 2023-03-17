@@ -31,5 +31,7 @@ const menuOptions = [
     }
 ]
 
+const shopOptions = [1, 10, 100]
 
-export { bossData, menuOptions }
+
+export { bossData, menuOptions, shopOptions }

@@ -1,13 +1,11 @@
 <script setup>
 import AppHero from '../components/AppHero.vue';
 import gsap from "gsap"
-
+import { shopOptions } from '../data/appConfig';
 import { useHeroStore } from "../stores/hero";
 import { storeToRefs } from "pinia";
 const store = useHeroStore()
 const { gold, stamina } = storeToRefs(store)
-
-const options = [1, 10, 100]
 
 const buyStamina = (value) => {
     if (gold.value >= value * 10) {
@@ -36,7 +34,8 @@ const enter = (el) => {
         <AppHero />
         <div class="shop-options">
             <TransitionGroup appear @before-enter="beforeEnter" @enter="enter">
-                <button @click="buyStamina(option)" v-for="option, index in options" :key="option" :data-index="index"> Buy
+                <button @click="buyStamina(option)" v-for="option, index in shopOptions" :key="option" :data-index="index">
+                    Buy
                     {{ option }}
                     stamina <p>({{ option * 10 }} gold)</p></button>
             </TransitionGroup>

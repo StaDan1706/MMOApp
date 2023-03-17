@@ -3,7 +3,7 @@ import HeroStats from "./HeroStats.vue";
 import { useHeroStore } from "../stores/hero";
 import { storeToRefs } from "pinia";
 const store = useHeroStore()
-const { experience, level, requiredExperience } = storeToRefs(store)
+const { experience, requiredExperience } = storeToRefs(store)
 </script>
 <template>
     <div>
