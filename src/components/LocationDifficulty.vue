@@ -1,7 +1,7 @@
 <script setup>
 import { useHeroStore } from "../stores/hero";
 import { storeToRefs } from "pinia";
-import { ref, defineEmits, defineProps } from 'vue';
+import { defineEmits, defineProps } from 'vue';
 import gsap from "gsap"
 import { useRoute } from "vue-router";
 

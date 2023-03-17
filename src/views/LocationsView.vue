@@ -1,11 +1,11 @@
 <script setup>
-import q from "../data/gameData.json"
+import gameData from "../data/gameData.json"
 import { ref } from "vue";
 import gsap from "gsap"
-import Hero from "../components/AppHero.vue"
-import Location from "../components/AppOption.vue"
+import AppHero from "../components/AppHero.vue"
+import AppOption from "../components/AppOption.vue"
 
-const options = ref(q)
+const options = ref(gameData)
 
 
 const beforeEnter = (el) => {
@@ -26,11 +26,11 @@ const enter = (el) => {
 <template>
   <div>
     <header>
-      <Hero />
+      <AppHero />
     </header>
     <div class="locations-container">
       <TransitionGroup appear @before-enter="beforeEnter" @enter="enter">
-        <Location v-for="option, index in options" :key="option.id" :option="option" :data-index="index" />
+        <AppOption v-for="option, index in options" :key="option.id" :option="option" :data-index="index" />
       </TransitionGroup>
     </div>
   </div>

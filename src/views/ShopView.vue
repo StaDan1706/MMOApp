@@ -1,5 +1,5 @@
 <script setup>
-import Hero from '../components/AppHero.vue';
+import AppHero from '../components/AppHero.vue';
 import gsap from "gsap"
 
 import { useHeroStore } from "../stores/hero";
@@ -33,7 +33,7 @@ const enter = (el) => {
 
 <template>
     <div class="shop">
-        <Hero />
+        <AppHero />
         <div class="shop-options">
             <TransitionGroup appear @before-enter="beforeEnter" @enter="enter">
                 <button @click="buyStamina(option)" v-for="option, index in options" :key="option" :data-index="index"> Buy

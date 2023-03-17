@@ -1,12 +1,12 @@
 <script setup >
-import Hero from "../components/AppHero.vue"
+import AppHero from "../components/AppHero.vue"
 import BossCombat from "../components/BossCombat.vue";
 
 </script>
 
 <template>
     <div class="boss-container">
-        <Hero />
+        <AppHero />
         <BossCombat />
     </div>
 </template>

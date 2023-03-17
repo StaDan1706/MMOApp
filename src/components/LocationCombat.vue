@@ -1,11 +1,9 @@
 <script setup>
 import Difficulty from "./LocationDifficulty.vue"
 import { useRoute } from "vue-router";
-import { storeToRefs } from "pinia";
 import { ref, defineProps } from 'vue';
 import { useHeroStore } from "../stores/hero";
 const { store, attack } = useHeroStore()
-// const { level, experience, power, stamina } = storeToRefs(store)
 const { options } = defineProps(['options'])
 const route = useRoute()
 const chosenDifficulty = ref()

@@ -1,15 +1,15 @@
 <script setup>
 import BossDefeated from "./BossDefeated.vue"
-import q from "../data/bossData.json"
+import bossData from "../data/bossData.json"
 import { ref, watch } from "vue";
 
 import { useHeroStore } from "../stores/hero";
 import { useBossStore } from "../stores/boss";
 import { storeToRefs } from "pinia";
-const { heroStore, power, addPowerScore, addGold, useStamina } = useHeroStore()
+const { power, addPowerScore, addGold, useStamina } = useHeroStore()
 const { attackBoss } = useBossStore()
 const bossStore = useBossStore()
-const options = ref(q[0])
+const options = ref(bossData[0])
 const { hp } = storeToRefs(bossStore)
 
 watch(hp, () => {

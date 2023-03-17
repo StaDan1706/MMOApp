@@ -1,15 +1,15 @@
 <script setup>
-import q from "../data/gameData.json"
+import menuOptions from "../data/gameData.json"
+import AppHero from "../components/AppHero.vue"
+import LocationCombat from "../components/LocationCombat.vue";
 import { ref } from "vue";
-import Hero from "../components/AppHero.vue"
-import Combat from "../components/LocationCombat.vue";
 
-const options = ref(q)
+const options = ref(menuOptions)
 
 </script>
 <template>
     <div>
-        <Hero />
-        <Combat :options="options"/>
+        <AppHero />
+        <LocationCombat :options="options"/>
     </div>
 </template>
