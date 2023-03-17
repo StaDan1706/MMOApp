@@ -1,31 +1,18 @@
 <script setup>
 import AppHero from '../components/AppHero.vue';
-import gsap from "gsap"
 import { shopOptions } from '../data/appConfig';
 import { useHeroStore } from "../stores/hero";
 import { storeToRefs } from "pinia";
+import { beforeEnter, enter } from '../utils/animationTransition.js'
+const { canBuyStamina } = useHeroStore()
 const store = useHeroStore()
 const { gold, stamina } = storeToRefs(store)
 
-const buyStamina = (value) => {
-    if (gold.value >= value * 10) {
-        stamina.value += value
-        gold.value -= value * 10
+const buyStamina = (option) => {
+    if (canBuyStamina({ gold: gold.value, option })) {
+        stamina.value += option
+        gold.value -= option * 10
     }
-}
-
-
-const beforeEnter = (el) => {
-    el.style.opacity = 0;
-    el.style.transform = "translateX(-60px)";
-}
-const enter = (el) => {
-    gsap.to(el, {
-        x: 0,
-        opacity: 1,
-        duration: 0.4,
-        delay: el.dataset.index * 0.1
-    })
 }
 </script>
 

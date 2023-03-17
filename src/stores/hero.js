@@ -30,6 +30,9 @@ export const useHeroStore = defineStore("hero", {
             }
 
         },
+        canBuyStamina({ gold, option }) {
+            return gold >= option * 10;
+        },
         useStamina(val) {
             if (this.stamina >= val) {
                 this.stamina -= val

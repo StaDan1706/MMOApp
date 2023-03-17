@@ -1,25 +1,11 @@
 <script setup>
 import gameData from "../data/gameData.json"
 import { ref } from "vue";
-import gsap from "gsap"
 import AppHero from "../components/AppHero.vue"
 import AppOption from "../components/AppOption.vue"
+import { beforeEnter, enter } from '../utils/animationTransition.js'
 
 const options = ref(gameData)
-
-
-const beforeEnter = (el) => {
-  el.style.opacity = 0;
-  el.style.transform = "translateY(-60px)";
-}
-const enter = (el) => {
-  gsap.to(el, {
-    y: 0,
-    opacity: 1,
-    duration: 0.4,
-    delay: el.dataset.index * 0.1
-  })
-}
 
 </script>
 
