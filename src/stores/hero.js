@@ -34,7 +34,7 @@ export const useHeroStore = defineStore("hero", {
         canBuyStamina({ gold, option }) {
             return gold >= option * 10;
         },
-        useStamina(val) {
+        consumeStamina(val) {
             if (this.stamina >= val) {
                 this.stamina -= val
                 this.restoreStamina()
@@ -79,7 +79,7 @@ export const useHeroStore = defineStore("hero", {
             this.addGold(Math.floor(Math.random() * 3) + 1)
         },
         attack(opponentPower, possibleExp) {
-            if (this.useStamina(1)) {
+            if (this.consumeStamina(1)) {
                 const result = this.calculateChance(opponentPower)
                 const draw = Math.floor(Math.random() * 100) + 1
                 if (draw <= result) {
