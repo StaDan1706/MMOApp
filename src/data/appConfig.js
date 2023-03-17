@@ -1,14 +1,14 @@
-const bossData = [
-    {
-        "id": "summoner",
-        "img": "https://micc.garmory-cdn.cloud/obrazki/npc/tyt/przyz_demon_sekta.gif",
-        "maxHp": 900,
-        "rewards": {
-            "gold": 1500,
-            "power": 10
-        }
+const bossData =
+{
+    "id": "summoner",
+    "img": "https://micc.garmory-cdn.cloud/obrazki/npc/tyt/przyz_demon_sekta.gif",
+    "maxHp": 900,
+    "rewards": {
+        "gold": 1500,
+        "power": 10
     }
-]
+}
+
 
 const menuOptions = [
     {
@@ -34,6 +34,7 @@ const menuOptions = [
 const shopOptions = [1, 10, 100]
 const maxStamina = 20
 const staminaCooldown = 5
+const difficulties = ["easy", "normal", "hard"]
 
 
-export { bossData, menuOptions, shopOptions, maxStamina, staminaCooldown }
+export { bossData, menuOptions, shopOptions, maxStamina, staminaCooldown, difficulties }

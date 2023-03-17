@@ -1,14 +1,14 @@
 <script setup>
-import Difficulty from "./LocationDifficulty.vue"
+import LocationDifficulty from "./LocationDifficulty.vue"
 import { useRoute } from "vue-router";
 import { ref, defineProps } from 'vue';
 import { useHeroStore } from "../stores/hero";
-const { store, attack } = useHeroStore()
+const { attack } = useHeroStore()
 const { options } = defineProps(['options'])
 const route = useRoute()
 const chosenDifficulty = ref()
+
 const routeId = options[route.params.id - 1]
-const routeDif = routeId.difficulty
 
 const onOptionSelected = (difficulty) => {
     chosenDifficulty.value = difficulty
@@ -20,14 +20,14 @@ const quitFromBattle = () => {
 
 </script>
 <template>
-    <Difficulty v-if="!chosenDifficulty" @difficulty="onOptionSelected" :options="options" />
+    <LocationDifficulty v-if="!chosenDifficulty" @difficulty="onOptionSelected" :options="options" />
 
     <div v-else class="combat-view" :style="{ backgroundImage: `url(' ${routeId.background} ')` }">
-        <img :src="routeDif[chosenDifficulty].img">
-        <h3>{{ routeDif[chosenDifficulty].monsterName }}</h3>
+        <img :src="routeId.difficulty[chosenDifficulty].img">
+        <h3>{{ routeId.difficulty[chosenDifficulty].monsterName }}</h3>
         <div class="options-container">
             <button @click="quitFromBattle" class="quit">Quit</button>
-            <button @click="attack(routeDif[chosenDifficulty].power, routeDif[chosenDifficulty].rewards.exp)"
+            <button @click="attack(routeId.difficulty[chosenDifficulty].power, routeId.difficulty[chosenDifficulty].rewards.exp)"
                 class="fight">Fight</button>
         </div>
     </div>

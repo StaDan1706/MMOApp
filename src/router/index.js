@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from "vue-router"
-import LocationsView from "../views/LocationsView.vue"
-import LocationView from "../views/LocationView.vue"
-import BossView from "../views/BossView.vue"
-import ShopView from "../views/ShopView.vue"
-import MainView from "../views/MainView.vue"
-import NotFound from "../views/404View.vue"
+const LocationsView = () => import("../views/LocationsView.vue")
+const LocationView = () => import("../views/LocationView.vue")
+const BossView = () => import("../views/BossView.vue")
+const ShopView = () => import("../views/ShopView.vue")
+const MainView = () => import("../views/MainView.vue")
+const NotFound = () => import("../views/404View.vue")
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),

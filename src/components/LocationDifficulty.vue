@@ -1,14 +1,12 @@
 <script setup>
 import { useHeroStore } from "../stores/hero";
-import { storeToRefs } from "pinia";
 import { defineEmits, defineProps } from 'vue';
 import { useRoute } from "vue-router";
 import { beforeEnter, enter } from '../utils/animationTransition.js'
+import { difficulties } from "../data/appConfig";
 
 const route = useRoute()
 const routeId = route.params.id - 1
-
-const difficulties = ["easy", "normal", "hard"]
 
 const { calculateChance } = useHeroStore()
 const { options } = defineProps(['options'])

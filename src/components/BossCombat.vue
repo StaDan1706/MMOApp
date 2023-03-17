@@ -6,10 +6,10 @@ import { useHeroStore } from "../stores/hero";
 import { useBossStore } from "../stores/boss";
 import { storeToRefs } from "pinia";
 
-const { power, addPowerScore, addGold, useStamina } = useHeroStore()
+const { power, addPowerScore, addGold, consumeStamina } = useHeroStore()
 const { attackBoss } = useBossStore()
 const bossStore = useBossStore()
-const options = ref(bossData[0])
+const options = ref(bossData)
 const { hp } = storeToRefs(bossStore)
 
 watch(hp, () => {
@@ -20,7 +20,7 @@ watch(hp, () => {
 })
 
 const attack = (attackPower, cost) => {
-    if (useStamina(cost)) {
+    if (consumeStamina(cost)) {
         attackBoss(attackPower)
     }
 }
