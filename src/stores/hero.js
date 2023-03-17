@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+import { maxStamina, staminaCooldown } from "../data/appConfig";
 
 export const useHeroStore = defineStore("hero", {
     state: () => {
@@ -7,8 +8,8 @@ export const useHeroStore = defineStore("hero", {
             experience: 0,
             requiredExperience: 300,
             power: 1,
-            stamina: 20,
-            seconds: 5,
+            stamina: maxStamina,
+            seconds: staminaCooldown,
             gold: 0,
             staminaIsRestoring: false,
         }
@@ -16,12 +17,12 @@ export const useHeroStore = defineStore("hero", {
     actions: {
         tick() {
             this.staminaIsRestoring = true
-            if (this.stamina < 20) {
+            if (this.stamina < maxStamina) {
                 if (this.seconds > 0) {
                     setTimeout(this.tick, 1000)
                     this.seconds--
                 } else {
-                    this.seconds = 5
+                    this.seconds = staminaCooldown
                     this.stamina++
                     this.tick()
                 }
