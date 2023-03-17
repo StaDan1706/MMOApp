@@ -1,5 +1,5 @@
 <script setup>
-import menuOptions from "../data/menuOptions.json"
+import { menuOptions } from "../data/appConfig.js"
 import { ref } from "vue";
 import gsap from "gsap"
 import AppHero from '../components/AppHero.vue';

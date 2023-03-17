@@ -1,4 +1,16 @@
-[
+const bossData = [
+    {
+        "id": "summoner",
+        "img": "https://micc.garmory-cdn.cloud/obrazki/npc/tyt/przyz_demon_sekta.gif",
+        "maxHp": 900,
+        "rewards": {
+            "gold": 1500,
+            "power": 10
+        }
+    }
+]
+
+const menuOptions = [
     {
         "id": "locations",
         "img": "https://images.g2a.com/1024x768/1x1x0/roki-pc-steam-key-global-i10000206473001/5f1939fb46177c2f19191753",
@@ -18,3 +30,6 @@
         "description": "Not enough stamina? No problem"
     }
 ]
+
+
+export { bossData, menuOptions }

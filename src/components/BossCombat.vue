@@ -1,6 +1,6 @@
 <script setup>
 import BossDefeated from "./BossDefeated.vue"
-import bossData from "../data/bossData.json"
+import { bossData } from "../data/appConfig.js"
 import { ref, watch } from "vue";
 
 import { useHeroStore } from "../stores/hero";
