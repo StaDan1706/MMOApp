@@ -1,16 +1,12 @@
-<script sertup>
-import { RouterView } from "vue-router"
+<script setup>
+import NavBar from "./components/NavBar.vue"
 </script>
 
 <template>
-  <div class="container">
-    <RouterView />
-  </div>
+  <v-app>
+    <NavBar />
+    <v-main>
+      <router-view />
+    </v-main>
+  </v-app>
 </template>
-
-<style scoped>
-.container {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-</style>
