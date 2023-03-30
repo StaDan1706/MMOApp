@@ -1,9 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router"
-const LocationsView = () => import("../views/LocationsView.vue")
+const AdventuresView = () => import("../views/AdventureView.vue")
 const LocationView = () => import("../views/LocationView.vue")
 const BossView = () => import("../views/BossView.vue")
 const ShopView = () => import("../views/ShopView.vue")
-const MainView = () => import("../views/MainView.vue")
 const NotFound = () => import("../views/404View.vue")
 const HeroView = () => import("../views/HeroView.vue")
 
@@ -11,19 +10,14 @@ const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
         {
-            path: "/",
-            name: "menu",
-            component: MainView
-        },
-        {
             path: "/hero",
             name: "hero",
             component: HeroView
         },
         {
-            path: "/locations",
-            name: "locations",
-            component: LocationsView
+            path: "/adventure",
+            name: "adventure",
+            component: AdventuresView
         },
         {
             path: "/location/:id",

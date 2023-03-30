@@ -17,9 +17,13 @@ const handleClose = () => {
         </v-btn>
 
         <template v-slot:append>
+
             <v-btn icon="mdi-account"></v-btn>
+
             <v-btn icon="mdi-theme-light-dark"></v-btn>
+
             <v-btn icon="mdi-help"></v-btn>
+            
         </template>
     </v-app-bar>
 

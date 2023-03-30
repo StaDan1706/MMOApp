@@ -12,16 +12,20 @@ const buyStamina = (option) => {
         gold.value -= option * 10
     }
 }
+
 </script>
 
 <template>
     <div class="mt-10 d-flex flex-column">
-        <v-btn class="mt-8" variant="outlined" v-for="option, index in shopOptions" @click="buyStamina(option)"
-            :key="option">
+        <v-btn class="mt-8" variant="outlined" size="large" v-for="option, index in shopOptions"
+            @click="buyStamina(option)">
             {{ option }} stamina
-            <v-tooltip activator="parent" location="right">
-              {{ option * 10 }} <v-icon icon="mdi-currency-usd"></v-icon>
+
+            <v-tooltip activator="parent" location="right" model-value @update:model-value="true">
+                {{ option * 10 }} <v-icon icon="mdi-currency-usd"></v-icon>
             </v-tooltip>
+
+            
+
         </v-btn>
-    </div>
-</template>
+</div> </template>

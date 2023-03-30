@@ -3,7 +3,7 @@ import { defineProps, defineEmits } from 'vue';
 import router from '../router';
 
 const navigateTo = (value) => {
-    router.push(`./${value}`)
+    router.push(`/${value}`)
 }
 
 const props = defineProps(['drawer'])
@@ -11,10 +11,6 @@ const emit = defineEmits(['close'])
 
 const handleClose = () => {
     emit('close')
-}
-
-const displayValue = (value) => {
-    console.log(value)
 }
 
 const items = [
