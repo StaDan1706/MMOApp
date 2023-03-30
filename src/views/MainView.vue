@@ -1,17 +1,13 @@
 <script setup>
 import { menuOptions } from "../data/appConfig.js"
 import { ref } from "vue";
-import AppHero from '../components/AppHero.vue';
 import AppOption from '../components/AppOption.vue';
 import { beforeEnter, enter } from '../utils/animationTransition.js'
 const options = ref(menuOptions)
 </script>
 
 <template>
-    <div class="menu">
-        <header>
-            <AppHero />
-        </header>
+    <div class="menu ">
         <div class="options-container">
             <TransitionGroup appear @before-enter="beforeEnter" @enter="enter">
                 <AppOption v-for="option, index in options" :key="option" :option="option" :isMenu="true"

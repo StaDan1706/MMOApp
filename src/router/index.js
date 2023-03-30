@@ -5,6 +5,7 @@ const BossView = () => import("../views/BossView.vue")
 const ShopView = () => import("../views/ShopView.vue")
 const MainView = () => import("../views/MainView.vue")
 const NotFound = () => import("../views/404View.vue")
+const HeroView = () => import("../views/HeroView.vue")
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -13,6 +14,11 @@ const router = createRouter({
             path: "/",
             name: "menu",
             component: MainView
+        },
+        {
+            path: "/hero",
+            name: "hero",
+            component: HeroView
         },
         {
             path: "/locations",

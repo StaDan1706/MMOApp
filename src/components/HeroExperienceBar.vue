@@ -1,5 +1,4 @@
 <script setup>
-import HeroStats from "./HeroStats.vue";
 import { useHeroStore } from "../stores/hero";
 import { storeToRefs } from "pinia";
 const store = useHeroStore()
@@ -10,7 +9,6 @@ const { experience, requiredExperience } = storeToRefs(store)
         <div class="experience-bar">
             <div class="completion" :style="{ width: `${experience * 100 / requiredExperience}%` }"></div>
         </div>
-        <HeroStats />
     </div>
 </template>
 <style scoped>

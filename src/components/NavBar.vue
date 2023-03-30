@@ -7,10 +7,11 @@ const drawer = ref(false)
 const handleClose = () => {
     drawer.value = false
 }
+
 </script>
 
 <template>
-    <v-app-bar class="bg-grey-darken-4" :elevation="0">
+    <v-app-bar class="bg-grey-darken-4" :elevation="10">
         <v-btn @click.stop="drawer = !drawer" prepend-icon="mdi-menu-right-outline">
             Menu
         </v-btn>
@@ -23,7 +24,6 @@ const handleClose = () => {
     </v-app-bar>
 
     <NavigationDrawer :drawer="drawer" v-on:close="handleClose" />
-
 </template>
 
 <style scoped></style>

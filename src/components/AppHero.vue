@@ -2,6 +2,7 @@
 import HeroLevel from "./HeroLevel.vue";
 import HeroStamina from "./HeroStamina.vue"
 import HeroExperienceBar from "./HeroExperienceBar.vue"
+import HeroStats from "./HeroStats.vue";
 
 
 </script>
@@ -11,6 +12,7 @@ import HeroExperienceBar from "./HeroExperienceBar.vue"
         <div class="hero">
             <HeroLevel />
             <HeroExperienceBar />
+            <HeroStats />
             <HeroStamina />
         </div>
     </header>

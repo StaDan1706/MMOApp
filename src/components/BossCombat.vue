@@ -32,9 +32,10 @@ const attack = (attackPower, cost) => {
             <div class="completion" :style="{ width: `${hp * 100 / options.maxHp}%` }"></div>
         </div>
         <img :src="options.img" alt="">
-        <button @click="attack(power, 10)">ATTACK
-            <p>( 10 stamina )</p>
-        </button>
+        <v-btn variant="outlined" @click="attack(power, 10)">
+            ATTACK
+            ( 10 stamina )
+        </v-btn>
         <div class="boss-rewards">Rewards:
             <p class="gold">Gold : + {{ options.rewards.gold }}</p>
             <p class="power">Power score : + {{ options.rewards.power }}</p>
@@ -100,21 +101,6 @@ img {
 
 .power {
     color: rgb(88, 255, 5);
-}
-
-button {
-    padding: 15px 40px;
-    border-radius: 16px;
-    cursor: pointer;
-    transition: .3s;
-    border: 2px solid bisque;
-    background-color: bisque;
-
-}
-
-button:hover {
-    background-color: black;
-    color: white;
 }
 
 @media screen and (max-width: 350px) {
