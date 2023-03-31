@@ -4,9 +4,10 @@ import { maxStamina, staminaCooldown } from "../data/appConfig";
 export const useHeroStore = defineStore("hero", {
     state: () => {
         return {
+            hp: 50,
             level: 1,
             experience: 0,
-            requiredExperience: 300,
+            requiredExperience: 2,
             power: 1,
             stamina: maxStamina,
             seconds: staminaCooldown,
@@ -59,7 +60,7 @@ export const useHeroStore = defineStore("hero", {
                 this.experience = 0
                 this.level += 1
                 this.addPowerScore(1)
-                this.requiredExperience += this.requiredExperience * 2 / 10
+                this.requiredExperience = Math.pow((this.level * 1.5), 2)
             }
         },
         calculateChance(val) {
@@ -74,16 +75,16 @@ export const useHeroStore = defineStore("hero", {
             }
         },
         win(num) {
-            this.experience += num
+            this.experience += num * 1.2
             this.addLevel()
-            this.addGold(Math.floor(Math.random() * 3) + 1)
+            this.addGold(Math.floor(Math.random() * 10) + 1)
         },
-        attack(opponentPower, possibleExp) {
+        attack(opponentPower) {
             if (this.consumeStamina(1)) {
                 const result = this.calculateChance(opponentPower)
                 const draw = Math.floor(Math.random() * 100) + 1
                 if (draw <= result) {
-                    this.win(possibleExp)
+                    this.win(opponentPower)
                 }
             }
         },

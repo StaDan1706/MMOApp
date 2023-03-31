@@ -3,7 +3,7 @@ import { defineStore } from "pinia";
 export const useBossStore = defineStore("boss", {
     state: () => {
         return {
-            hp: 900,
+            hp: 100,
         }
     },
     actions: {
