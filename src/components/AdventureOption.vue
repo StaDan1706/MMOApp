@@ -6,16 +6,23 @@ const router = useRouter()
 const { option } = defineProps(['option', 'isMenu'])
 
 const navigateTo = () => {
-        router.push(`/location/${option.id}`)
+    router.push(`adventure/location/${option.id}`)
 }
 </script>
 
 <template>
-    <div class="ma-4 text-center" @click="navigateTo">
-        <v-img :width="200" :height="125" aspect-ratio="16/9" cover :src="option.img"></v-img>
-        <div>
-            <h3 class="mt-2">{{ option.name }}</h3>
-            <p>{{ option.description }}</p>
-        </div>
-    </div>
+    
+    <v-card @click="navigateTo" class="ma-4 bg-transparent"  :width="225" :height="215">
+        
+        <v-img :width="225" :height="135" aspect-ratio="16/9" cover :src="option.img"></v-img>
+
+        <v-card-title>
+            {{ option.name }}
+        </v-card-title>
+
+        <v-card-subtitle>
+            {{ option.description }}
+        </v-card-subtitle>
+
+    </v-card>
 </template>

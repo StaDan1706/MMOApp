@@ -1,128 +1,72 @@
 <script setup>
-import LocationDifficulty from "./LocationDifficulty.vue"
 import { useRoute } from "vue-router";
-import { ref, defineProps } from 'vue';
+import { defineProps, defineEmits } from 'vue';
 import { useHeroStore } from "../stores/hero";
-const { attack } = useHeroStore()
-const { options } = defineProps(['options'])
+
+const { power, attack } = useHeroStore()
+const { options, chosenDifficulty } = defineProps(['options', 'chosenDifficulty'])
 const route = useRoute()
-const chosenDifficulty = ref()
 
 const routeId = options[route.params.id - 1]
 
-const onOptionSelected = (difficulty) => {
-    chosenDifficulty.value = difficulty
-}
 
-const quitFromBattle = () => {
-    chosenDifficulty.value = null
+const emit = defineEmits(["quit"])
+const emitQuit = () => {
+    emit("quit")
 }
 
 </script>
+
 <template>
-    <LocationDifficulty v-if="!chosenDifficulty" @difficulty="onOptionSelected" :options="options" />
+    <v-card class="mt-15" max-width="400">
+        <v-img class="align-end text-white" height="300" width="400" :src="routeId.background" cover>
+            <v-img class="mx-auto" width="100" :src="routeId.difficulty[chosenDifficulty].img"></v-img>
+            <v-card-title class="text-center text-uppercase bg-red-darken-4">{{
+                routeId.difficulty[chosenDifficulty].monsterName }}</v-card-title>
+        </v-img>
 
-    <div v-else class="combat-view" :style="{ backgroundImage: `url(' ${routeId.background} ')` }">
-        <img :src="routeId.difficulty[chosenDifficulty].img">
-        <h3>{{ routeId.difficulty[chosenDifficulty].monsterName }}</h3>
-        <div class="options-container">
-            <button @click="quitFromBattle" class="quit">Quit</button>
-            <button @click="attack(routeId.difficulty[chosenDifficulty].power, routeId.difficulty[chosenDifficulty].rewards.exp)"
-                class="fight">Fight</button>
-        </div>
-    </div>
+        <v-card-subtitle class="pt-3">
+        </v-card-subtitle>
+
+        <!-- <v-card-text class="text-center">
+            <div> Monster Power : {{ routeId.difficulty[chosenDifficulty].power }}</div>
+
+            <div>Your Power : {{ power }}</div>
+        </v-card-text> -->
+
+        <v-card-actions class="d-flex flex-column ">
+
+            <v-btn value="recent" width="200">
+                <v-icon>mdi-knife-military</v-icon>
+                Attack
+            </v-btn>
+
+            <v-btn value="favorites" width="200">
+                <v-icon>mdi-sword</v-icon>
+                Special Attack
+            </v-btn>
+
+
+            <v-btn value="nearby" color="green" width="200">
+                <v-icon>mdi-bottle-tonic-plus</v-icon>
+                Heal
+            </v-btn>
+
+        </v-card-actions>
+    </v-card>
+
+    <v-bottom-navigation class="bg-grey-darken-4" :elevation="8" grow>
+        <v-btn append-icon="mdi-run-fast d" @click="emitQuit" color="orange" width="100%" >
+            Run Away
+        </v-btn>
+    </v-bottom-navigation>
 </template>
-<style scoped>
-.combat-view {
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    flex-direction: column;
-    width: 450px;
-    height: 400px;
-    border: 2px solid bisque;
-    border-radius: 16px;
-    margin: 10px auto;
-    background-color: rgb(110, 72, 72);
-    background-size: contain;
-    margin-bottom: 70px;
-}
 
-img {
-    transform: scale(1.5);
-}
 
-h3 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 15px;
-    max-width: 200px;
-    text-align: center;
-    margin: 15px 0 100px;
-    color: aliceblue;
-    background-color: black;
-    padding: 2px 10px;
-}
 
-.options-container {
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    display: flex;
-}
-
-button {
-    flex-grow: 1;
-    height: 50px;
-    border: none;
-    font-size: 25px;
-    font-weight: bold;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: .2s linear;
-}
-
-button:hover {
-    background-color: black;
-    color: white;
-}
-
-.quit {
-    border-bottom-left-radius: 16px;
-}
-
-.fight {
-    border-bottom-right-radius: 16px;
-}
-
-.allert-container {
-    z-index: 9999;
-    background-color: rgb(35, 31, 31);
-    padding: 5px 60px;
-    font-weight: 900;
-    font-size: 24px;
-    color: green;
-    border-radius: 16px;
-    position: absolute;
-    top: 0;
-    border: white 2px solid;
-}
-
-p {
-    text-transform: uppercase;
-}
-
-@media screen and (max-width: 750px) {
-    .combat-view {
-        width: 250px;
-        height: 250px;
-    }
-
-    h3 {
-        margin-bottom: 60px;
-    }
-}
-</style>
+<!-- <template>
+    <div class="combat-view" :style="{ backgroundImage: `url(' ${routeId.background} ')` }">
+        <img :src="routeId.difficulty[chosenDifficulty].img">
+        <h3></h3>
+    </div>
+</template> -->
