@@ -2,34 +2,28 @@
 import { useHeroStore } from "../stores/hero";
 import { storeToRefs } from "pinia";
 const store = useHeroStore()
-const { power, gold } = storeToRefs(store)
+const { stamina, seconds, gold, power } = storeToRefs(store)
 </script>
+
 <template>
-    <div class="stats">
-        <h4 class="power-score">Power score : {{ power }}</h4>
-        <h4 class="gold">Gold : {{ gold }}</h4>
-    </div>
+    <v-card class="d-flex flex-column align-center justify-center bg-grey-darken-4">
+
+        <v-btn prepend-icon="mdi-sword">
+            {{ power }}
+            <v-tooltip activator="parent" location="right">Power</v-tooltip>
+        </v-btn>
+
+        <v-btn prepend-icon="mdi-flask">
+            {{ stamina }}
+            <v-tooltip v-if="stamina < 20" activator="parent" location="right">+1 stamina in {{ seconds }}</v-tooltip>
+            <v-tooltip v-else activator="parent" location="right">STAMINA MAX</v-tooltip>
+        </v-btn>
+
+        <v-btn prepend-icon="mdi-gold">
+            {{ gold }}
+            <v-tooltip activator="parent" location="right">Gold</v-tooltip>
+        </v-btn>
+
+    </v-card>
 </template>
-<style scoped>
-h4 {
-    font-size: 20px;
-    text-transform: uppercase;
-    text-align: center;
-}
-
-.gold {
-    color: goldenrod;
-}
-
-.power-score {
-    color: rgb(204, 75, 75);
-    font-weight: bold
-}
-
-@media screen and (max-width: 350px) {
-    .power-score,
-    .gold {
-        font-size: 15px;
-    }
-}
-</style>
+ 

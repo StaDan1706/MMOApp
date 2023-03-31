@@ -15,11 +15,6 @@ const handleClose = () => {
 
 const items = [
     {
-        icon: "mdi-account",
-        title: "Hero",
-        value: "hero"
-    },
-    {
         icon: "mdi-sword",
         title: "Adventure",
         value: "adventure"
