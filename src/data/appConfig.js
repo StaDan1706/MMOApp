@@ -34,7 +34,21 @@ const menuOptions = [
 const shopOptions = [1, 10, 100]
 const maxStamina = 20
 const staminaCooldown = 5
-const difficulties = ["easy", "normal", "hard"]
+const difficulties = [
+    {
+        option: "easy",
+        icon: "mdi-rabbit"
+    },
+    {
+        option: "normal",
+        icon: "mdi-snake"
+    },
+    {
+        option: "hard",
+        icon: "mdi-skull-outline"
+    }
+]
+
 
 
 export { bossData, menuOptions, shopOptions, maxStamina, staminaCooldown, difficulties }

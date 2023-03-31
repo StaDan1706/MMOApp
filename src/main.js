@@ -1,17 +1,17 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import router from "./router/index"
+import router from './router'
+import vuetify from './plugins/vuetify'
+import { loadFonts } from './plugins/webfontloader'
 import { createPinia } from 'pinia'
-import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
-import './assets/main.css'
-
 
 const pinia = createPinia()
-const app = createApp(App)
 
-pinia.use(piniaPluginPersistedstate)
 
-app.use(router)
-app.use(pinia)
+loadFonts()
 
-app.mount('#app')
+createApp(App)
+  .use(pinia)
+  .use(router)
+  .use(vuetify)
+  .mount('#app')

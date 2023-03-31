@@ -1,8 +1,8 @@
 <script setup>
 import gameData from "../data/gameData.json"
 import { ref } from "vue";
-import AppHero from "../components/AppHero.vue"
-import AppOption from "../components/AppOption.vue"
+
+import AdventureOption from "../components/AdventureOption.vue"
 import { beforeEnter, enter } from '../utils/animationTransition.js'
 
 const options = ref(gameData)
@@ -10,16 +10,11 @@ const options = ref(gameData)
 </script>
 
 <template>
-  <div>
-    <header>
-      <AppHero />
-    </header>
     <div class="locations-container">
       <TransitionGroup appear @before-enter="beforeEnter" @enter="enter">
-        <AppOption v-for="option, index in options" :key="option.id" :option="option" :data-index="index" />
+        <AdventureOption v-for="option, index in options" :key="option.id" :option="option" :data-index="index" />
       </TransitionGroup>
     </div>
-  </div>
 </template>
 
 <style scoped>

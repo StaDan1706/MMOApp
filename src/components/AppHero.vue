@@ -1,18 +1,18 @@
 <script setup>
 import HeroLevel from "./HeroLevel.vue";
-import AppNavigation from "./AppNavigation.vue"
 import HeroStamina from "./HeroStamina.vue"
 import HeroExperienceBar from "./HeroExperienceBar.vue"
+import HeroStats from "./HeroStats.vue";
 
 
 </script>
 
 <template>
     <header>
-        <AppNavigation />
         <div class="hero">
             <HeroLevel />
             <HeroExperienceBar />
+            <HeroStats />
             <HeroStamina />
         </div>
     </header>
