@@ -1,11 +1,14 @@
 <script setup>
 import { useRoute } from "vue-router";
-import { defineProps, defineEmits } from 'vue';
+import { ref, defineProps, defineEmits } from 'vue';
 import { useHeroStore } from "../stores/hero";
 
 const { attack } = useHeroStore()
 const { options, chosenDifficulty } = defineProps(['options', 'chosenDifficulty'])
 const route = useRoute()
+const isWin = ref(false)
+const snackbar = ref(false)
+const timeout = 2000
 
 const routeId = options[route.params.id - 1]
 
@@ -13,6 +16,11 @@ const routeId = options[route.params.id - 1]
 const emit = defineEmits(["quit"])
 const emitQuit = () => {
     emit("quit")
+}
+
+const attackOpponent = (val) => {
+    isWin.value = attack(val)
+    snackbar.value = true;
 }
 
 </script>
@@ -30,14 +38,9 @@ const emitQuit = () => {
 
         <v-card-actions class="d-flex flex-column ">
 
-            <v-btn @click="attack(routeId.difficulty[chosenDifficulty].power)" value="recent" width="200">
-                <v-icon>mdi-knife-military</v-icon>
+            <v-btn @click="attackOpponent(routeId.difficulty[chosenDifficulty].power)" value="recent" width="200">
+                <v-icon>mdi-sword</v-icon>
                 Attack
-            </v-btn>
-
-            <v-btn value="nearby" color="green" width="200">
-                <v-icon>mdi-bottle-tonic-plus</v-icon>
-                Heal
             </v-btn>
 
             <v-btn append-icon="mdi-run-fast d" @click="emitQuit" color="orange" width="100%">
@@ -46,4 +49,14 @@ const emitQuit = () => {
 
         </v-card-actions>
     </v-card>
+
+    <v-snackbar v-model="snackbar" :timeout="timeout">
+        {{ isWin }}
+
+        <template v-slot:actions>
+            <v-btn color="blue" variant="isWin" @click="snackbar = false">
+                Close
+            </v-btn>
+        </template>
+    </v-snackbar>
 </template>

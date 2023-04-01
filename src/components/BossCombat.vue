@@ -51,12 +51,14 @@ const newBoss = () => {
         </v-card-actions>
 
         <v-card-item>
-            <div class="text-h5 mb-1">
-                Rewards
+            <div class="text-h5 mb-1 d-flex flex-column align-center">
+                <v-icon>mdi-treasure-chest</v-icon>
+
+                <div class="text-caption">Gold : + {{ options.rewards.gold }}</div>
+                <div class="text-caption">Power Score : + {{ options.rewards.power }}</div>
             </div>
 
-            <div class="text-caption">Gold : + {{ options.rewards.gold }}</div>
-            <div class="text-caption">Gold : + {{ options.rewards.power }}</div>
+
 
         </v-card-item>
     </v-card>

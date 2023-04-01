@@ -7,14 +7,17 @@ import { storeToRefs } from "pinia";
 const store = useHeroStore()
 const { gold, stamina } = storeToRefs(store)
 const snackbar = ref(false)
-const text = "Not enough money!"
+const text = ref("")
 const timeout = 2000
 
 const buyStamina = (option) => {
     if (store.canBuyStamina({ gold: gold.value, option })) {
+        text.value = "Purchased !"
+        snackbar.value = true
         stamina.value += option
         gold.value -= option * 10
     } else {
+        text.value = "Not enough money!"
         snackbar.value = true
     }
 }
