@@ -24,89 +24,44 @@ const attack = (attackPower, cost) => {
         attackBoss(attackPower)
     }
 }
+
+const newBoss = () => {
+    hp.value = options.value.maxHp
+}
 </script>
 
 <template>
-    <div v-if="hp > 0" class="boss">
-        <div class="boss-hp">{{ hp }}/{{ options.maxHp }}HP
-            <div class="completion" :style="{ width: `${hp * 100 / options.maxHp}%` }"></div>
-        </div>
-        <img :src="options.img" alt="">
-        <v-btn variant="outlined" @click="attack(power, 10)">
-            ATTACK
-            ( 10 stamina )
-        </v-btn>
-        <div class="boss-rewards">Rewards:
-            <p class="gold">Gold : + {{ options.rewards.gold }}</p>
-            <p class="power">Power score : + {{ options.rewards.power }}</p>
-        </div>
-    </div>
-    <BossDefeated v-else />
+    <v-card v-if="hp" class="mx-auto bg-grey-darken-4 pa-3" width="300">
+        <v-card-item class="text-center">
+            <div>
+                <v-progress-linear class="ma-2" color="red-accent-3" :model-value="hp * 100 / options.maxHp" :height="25">
+                    <template v-slot:default="{ value }">
+                        <strong>{{ hp }}/{{ options.maxHp }}HP</strong>
+                    </template>
+                </v-progress-linear>
+
+                <v-img :src="options.img"></v-img>
+            </div>
+        </v-card-item>
+
+        <v-card-actions class="d-flex justify-center pa-5">
+            <v-btn @click="attack(power, 10)" variant="outlined">
+                Attack
+            </v-btn>
+        </v-card-actions>
+
+        <v-card-item>
+            <div class="text-h5 mb-1 d-flex flex-column align-center">
+                <v-icon>mdi-treasure-chest</v-icon>
+
+                <div class="text-caption">Gold : + {{ options.rewards.gold }}</div>
+                <div class="text-caption">Power Score : + {{ options.rewards.power }}</div>
+            </div>
+
+
+
+        </v-card-item>
+    </v-card>
+    <BossDefeated v-else v-on:newBoss="newBoss" />
 </template>
 
-<style scoped>
-.boss {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 450px;
-    width: 450px;
-    margin: 0 auto;
-    width: 100%;
-}
-
-img {
-    transform: scale(1.5);
-    margin: 40px 0;
-}
-
-.boss-hp {
-    position: relative;
-    font-size: 25px;
-    font-weight: bold;
-    padding: 5px 20px;
-    border-radius: 16px;
-    width: 300px;
-    text-align: center;
-    color: white;
-    border: 1px solid white;
-    z-index: 1000;
-}
-
-.completion {
-    height: 100%;
-    border-radius: 16px;
-    transition: .5s linear;
-    background-color: rgb(158, 45, 45);
-    position: absolute;
-    left: 0;
-    top: 0;
-    border-radius: 16px;
-    z-index: -1000
-}
-
-.boss-rewards {
-    border: 2px solid bisque;
-    border-radius: 16px;
-    padding: 5px 10px;
-    background-color: transparent;
-    margin-top: 20px;
-    text-transform: uppercase;
-}
-
-.gold {
-    color: goldenrod;
-}
-
-.power {
-    color: rgb(88, 255, 5);
-}
-
-@media screen and (max-width: 350px) {
-    .boss-hp {
-        font-size: 20px;
-        width: 150px;
-    }
-}
-</style>

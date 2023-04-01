@@ -13,15 +13,16 @@ const { stamina, seconds, gold, power } = storeToRefs(store)
             <v-tooltip activator="parent" location="right">Power</v-tooltip>
         </v-btn>
 
-        <v-btn prepend-icon="mdi-flask">
-            {{ stamina }}
-            <v-tooltip v-if="stamina < 20" activator="parent" location="right">+1 stamina in {{ seconds }}</v-tooltip>
-            <v-tooltip v-else activator="parent" location="right">STAMINA MAX</v-tooltip>
-        </v-btn>
-
         <v-btn prepend-icon="mdi-gold">
             {{ gold }}
             <v-tooltip activator="parent" location="right">Gold</v-tooltip>
+        </v-btn>
+
+        <v-btn prepend-icon="mdi-flask">
+            <div v-if="stamina < 20"> +1 in {{ seconds }}</div>
+            <div v-else> MAX</div>
+
+            <v-tooltip activator="parent" location="right">Stamina regeneration</v-tooltip>
         </v-btn>
 
     </v-card>

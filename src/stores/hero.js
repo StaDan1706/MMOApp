@@ -6,7 +6,7 @@ export const useHeroStore = defineStore("hero", {
         return {
             level: 1,
             experience: 0,
-            requiredExperience: 300,
+            requiredExperience: 2,
             power: 1,
             stamina: maxStamina,
             seconds: staminaCooldown,
@@ -59,10 +59,16 @@ export const useHeroStore = defineStore("hero", {
                 this.experience = 0
                 this.level += 1
                 this.addPowerScore(1)
-                this.requiredExperience += this.requiredExperience * 2 / 10
+                this.requiredExperience = Math.pow((this.level * 1.5), 2)
             }
         },
-        calculateChance(val) {
+        win(num) {
+            this.experience += num * 1.2
+            this.addLevel()
+            this.addGold(Math.floor(Math.random() * 10) + 1)
+        },
+
+          calculateChance(val) {
             if (this.power >= val) {
                 return 100
             } else if (this.power >= val - 2) {
@@ -73,21 +79,20 @@ export const useHeroStore = defineStore("hero", {
                 return 0
             }
         },
-        win(num) {
-            this.experience += num
-            this.addLevel()
-            this.addGold(Math.floor(Math.random() * 3) + 1)
-        },
-        attack(opponentPower, possibleExp) {
+
+        
+        attack(opponentPower) {
             if (this.consumeStamina(1)) {
                 const result = this.calculateChance(opponentPower)
                 const draw = Math.floor(Math.random() * 100) + 1
                 if (draw <= result) {
-                    this.win(possibleExp)
-                }
-            }
+                    this.win(opponentPower)
+                    return "You Won !"
+                } else return "Fight Lost !"
+            } else return "Not Enough Stamina !"
         },
     },
+
     persist: {
         afterRestore: (ctx) => {
             ctx.store.staminaIsRestoring = false;
