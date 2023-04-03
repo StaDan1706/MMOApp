@@ -8,7 +8,7 @@
             404 Page Not Found
         </v-card-title>
 
-        <a class="text-decoration-none" href="/adventure">
+        <a class="text-decoration-none" href="/">
             <v-btn color="orange-lighten-2" variant="text">Take me to a safe place</v-btn>
         </a>
 

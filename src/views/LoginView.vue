@@ -4,9 +4,11 @@ import { useHeroStore } from "../stores/hero";
 import { storeToRefs } from "pinia";
 import router from "../router";
 const store = useHeroStore()
+const {setNickname} = useHeroStore()
 const { nickname } = storeToRefs(store)
 
 const nick = ref('')
+const validation = ref('')
 
 const rules = [
     value => !!value || 'Required.',
@@ -14,8 +16,9 @@ const rules = [
     value => (value && value.length <= 15) || 'Max 15 characters'
 ]
 
-const nicknameConfim = (val) => {
-    store.setNickname(val)
+const nicknameConfirm = (val) => {
+    setNickname(val)
+    router.push('/')
 }
 </script>
 
@@ -28,12 +31,12 @@ const nicknameConfim = (val) => {
                     Set Your Nickname
                 </div>
             </div>
-            <v-text-field  label="Nickname" v-model="nick" :rules="rules"
+            <v-text-field label="Nickname" v-model="nick" :rules="rules"
                 hide-details="auto"></v-text-field>
         </v-card-item>
 
         <v-card-actions>
-            <v-btn @click="nicknameConfim(nick)" variant="outlined">
+            <v-btn @click="nicknameConfirm(nick)" variant="outlined">
                 Play
             </v-btn>
         </v-card-actions>

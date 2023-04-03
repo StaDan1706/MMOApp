@@ -1,32 +1,37 @@
 import { createRouter, createWebHistory } from "vue-router"
+import { useHeroStore } from "../stores/hero";
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
         {
-            path: "/",
+            path: "/login",
             name: "login",
-            component: () => import("../views/AppLoginView.vue")
+            component: () => import("../views/LoginView.vue")
         },
         {
-            path: "/adventure",
+            path: "/",
             name: "adventure",
-            component: () => import("../views/AdventureView.vue")
+            component: () => import("../views/AdventureView.vue"),
+            meta: { requiresAuth: true }
         },
         {
             path: "/adventure/location/:id",
             name: "location",
-            component: () => import("../views/LocationView.vue")
+            component: () => import("../views/LocationView.vue"),
+            meta: { requiresAuth: true }
         },
         {
             path: "/shop",
             name: "shop",
-            component: () => import("../views/ShopView.vue")
+            component: () => import("../views/ShopView.vue"),
+            meta: { requiresAuth: true }
         },
         {
             path: "/boss",
             name: "boss",
-            component: () => import("../views/BossView.vue")
+            component: () => import("../views/BossView.vue"),
+            meta: { requiresAuth: true }
         },
         {
             path: "/:catchall(.*)*",
@@ -34,6 +39,11 @@ const router = createRouter({
             component: () => import("../views/404View.vue")
         },
     ]
+})
+
+router.beforeEach((to) => {
+    const { nickname } = useHeroStore()
+      if (to.meta.requiresAuth && !nickname) return '/login'
 })
 
 

@@ -17,7 +17,7 @@ const items = [
     {
         icon: "mdi-sword",
         title: "Adventure",
-        value: "adventure"
+        value: ""
     },
     {
         icon: "mdi-skull",
