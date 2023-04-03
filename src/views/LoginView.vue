@@ -4,11 +4,12 @@ import { useHeroStore } from "../stores/hero";
 import { storeToRefs } from "pinia";
 import router from "../router";
 const store = useHeroStore()
-const {setNickname} = useHeroStore()
+const { setNickname } = useHeroStore()
 const { nickname } = storeToRefs(store)
+const valid = ref('')
 
 const nick = ref('')
-const validation = ref('')
+const form = ref(null)
 
 const rules = [
     value => !!value || 'Required.',
@@ -16,29 +17,23 @@ const rules = [
     value => (value && value.length <= 15) || 'Max 15 characters'
 ]
 
-const nicknameConfirm = (val) => {
-    setNickname(val)
-    router.push('/')
+
+
+const nicknameConfirm = async (nick) => {
+    valid.value = await form.value.validate()
+    console.log(valid.value.valid)
+    if (valid.value.valid === true) {
+        setNickname(nick)
+        router.push('/')
+    } 
 }
 </script>
 
 <template>
-    <v-card  v-if="!nickname" class="mx-auto d-flex flex-column justify-center align-center text-center mt-15 rounded-lg" width="300"
-        height="250" variant="outlined">
-        <v-card-item>
-            <div>
-                <div class="text-h6 mb-1">
-                    Set Your Nickname
-                </div>
-            </div>
-            <v-text-field label="Nickname" v-model="nick" :rules="rules"
-                hide-details="auto"></v-text-field>
-        </v-card-item>
-
-        <v-card-actions>
-            <v-btn @click="nicknameConfirm(nick)" variant="outlined">
-                Play
-            </v-btn>
-        </v-card-actions>
-    </v-card>
+    <v-sheet width="300" class="mx-auto mt-15">
+        <v-form ref="form" @submit.prevent @keyup.enter="nicknameConfirm(nick)">
+            <v-text-field v-model="nick" :rules="rules" label="Nickname"></v-text-field>
+            <v-btn @click="nicknameConfirm(nick)" type="submit" block class="mt-2">Submit</v-btn>
+        </v-form>
+    </v-sheet>
 </template>
