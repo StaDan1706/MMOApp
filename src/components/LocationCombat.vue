@@ -54,7 +54,7 @@ const attackOpponent = (val) => {
         {{ isWin }}
 
         <template v-slot:actions>
-            <v-btn color="blue" variant="isWin" @click="snackbar = false">
+            <v-btn color="blue"  @click="snackbar = false">
                 Close
             </v-btn>
         </template>

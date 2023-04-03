@@ -4,6 +4,7 @@ import { maxStamina, staminaCooldown } from "../data/appConfig";
 export const useHeroStore = defineStore("hero", {
     state: () => {
         return {
+            nickname: '',
             level: 1,
             experience: 0,
             requiredExperience: 2,
@@ -15,6 +16,9 @@ export const useHeroStore = defineStore("hero", {
         }
     },
     actions: {
+        setNickname(value) {
+            this.nickname = value
+        },
         tick() {
             this.staminaIsRestoring = true
             if (this.stamina < maxStamina) {

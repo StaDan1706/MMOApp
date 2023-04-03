@@ -6,7 +6,7 @@ const { stamina, seconds, gold, power } = storeToRefs(store)
 </script>
 
 <template>
-    <v-card class="d-flex flex-column align-center justify-center bg-grey-darken-4">
+    <v-card class="d-flex flex-column align-center justify-center background">
 
         <v-btn prepend-icon="mdi-sword">
             {{ power }}

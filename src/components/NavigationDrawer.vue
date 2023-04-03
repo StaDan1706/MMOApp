@@ -17,7 +17,7 @@ const items = [
     {
         icon: "mdi-sword",
         title: "Adventure",
-        value: "adventure"
+        value: ""
     },
     {
         icon: "mdi-skull",
@@ -35,12 +35,12 @@ const items = [
 </script>
 
 <template>
-    <v-navigation-drawer class="bg-grey-darken-4" v-model="props.drawer" temporary>
+    <v-navigation-drawer class="background" v-model="props.drawer" temporary>
 
         <v-divider></v-divider>
 
         <v-list @click="handleClose()" density="compact" nav>
-            <v-list-item v-for="item in items" @click="navigateTo(item.value)" :prepend-icon="item.icon" :title="item.title" ></v-list-item>
+            <v-list-item v-for="item in items" :key="item" @click="navigateTo(item.value)" :prepend-icon="item.icon" :title="item.title" ></v-list-item>
         </v-list>
 
     </v-navigation-drawer>
