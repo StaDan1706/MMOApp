@@ -5,7 +5,7 @@ const store = useHeroStore()
 const { experience, requiredExperience, level, stamina } = storeToRefs(store)
 </script>
 <template>
-    <v-card class="d-flex flex-column justify-center align-center bg-grey-darken-4 mx-10" width="300">
+    <v-card class="d-flex flex-column justify-center align-center background mx-10" width="300">
 
         <h3 class="text-center">Salvatore Damon - {{ level }} lvl</h3>
 

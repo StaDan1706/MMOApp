@@ -18,8 +18,8 @@ const emitSelectedOption = (option) => {
 </script>
 
 <template>
-  <v-card max-width="300" class="mt-15 bg-grey-darken-4 pa-5" elevation="20">
-    <v-list density="compact" class="bg-grey-darken-4">
+  <v-card max-width="300" class="mt-15 background pa-5" elevation="20">
+    <v-list density="compact" class="background">
 
       <v-list-subheader class="d-flex justify-center align-center text-white text-h5">DIFFICULTY</v-list-subheader>
 

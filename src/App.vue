@@ -3,7 +3,7 @@ import NavBar from "./components/NavBar.vue"
 </script>
 
 <template>
-  <v-app class="bg-grey-darken-4" >
+  <v-app class="background" >
     <NavBar />
     <v-main class="w-75 d-flex align-self-center justify-center" >
       <router-view />
