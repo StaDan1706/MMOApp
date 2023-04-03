@@ -21,7 +21,7 @@ watch(hp, () => {
         addPowerScore(10)
         addGold(1500)
         snackbar.value = true
-        snackbarText.value = "Boss Defeated ! Rewards added !"
+        snackbarText.value = "Boss Defeated ! Rewards added!"
     }
 })
 
@@ -73,13 +73,13 @@ const newBoss = () => {
 
         </v-card-item>
     </v-card>
-    <BossDefeated v-else v-on:newBoss="newBoss" />
+    <BossDefeated v-else/>
 
     <v-snackbar v-model="snackbar" :timeout="timeout">
         {{ snackbarText }}
 
         <template v-slot:actions>
-            <v-btn color="blue" variant="isWin" @click="snackbar = false">
+            <v-btn color="blue" @click="snackbar = false">
                 Close
             </v-btn>
         </template>

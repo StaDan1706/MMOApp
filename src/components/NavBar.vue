@@ -4,6 +4,10 @@ import NavigationDrawer from './NavigationDrawer.vue';
 import { useTheme } from 'vuetify'
 import HeroStats from './HeroStats.vue';
 import HeroInfo from './HeroInfo.vue';
+import { useHeroStore } from "../stores/hero";
+import { storeToRefs } from "pinia";
+const store = useHeroStore()
+const { nickname } = storeToRefs(store)
 
 
 const theme = useTheme()
@@ -26,7 +30,7 @@ const toggleTheme = () => {
             Menu
         </v-btn>
 
-        <v-container class="d-flex justify-center align-center mx-auto self-align-center">
+        <v-container v-if="nickname" class="d-flex justify-center align-center mx-auto self-align-center">
             <HeroInfo />
             <HeroStats />
         </v-container>

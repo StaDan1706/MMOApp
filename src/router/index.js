@@ -1,39 +1,41 @@
 import { createRouter, createWebHistory } from "vue-router"
-const AdventuresView = () => import("../views/AdventureView.vue")
-const LocationView = () => import("../views/LocationView.vue")
-const BossView = () => import("../views/BossView.vue")
-const ShopView = () => import("../views/ShopView.vue")
-const NotFound = () => import("../views/404View.vue")
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
         {
+            path: "/",
+            name: "login",
+            component: () => import("../views/AppLoginView.vue")
+        },
+        {
             path: "/adventure",
             name: "adventure",
-            component: AdventuresView
+            component: () => import("../views/AdventureView.vue")
         },
         {
             path: "/adventure/location/:id",
             name: "location",
-            component: LocationView
+            component: () => import("../views/LocationView.vue")
         },
         {
             path: "/shop",
             name: "shop",
-            component: ShopView
+            component: () => import("../views/ShopView.vue")
         },
         {
             path: "/boss",
             name: "boss",
-            component: BossView
+            component: () => import("../views/BossView.vue")
         },
         {
             path: "/:catchall(.*)*",
             name: "not found",
-            component: NotFound
+            component: () => import("../views/404View.vue")
         },
     ]
 })
+
+
 
 export default router
