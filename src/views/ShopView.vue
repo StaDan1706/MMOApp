@@ -3,7 +3,6 @@ import { ref } from 'vue';
 import { shopOptions } from '../data/appConfig';
 import { useHeroStore } from "../stores/hero";
 import { storeToRefs } from "pinia";
-import SnackBar from "./SnackBar.vue"
 import { useSnackbarStore } from "../stores/snackbar"
 
 const { activateSnackbar } = useSnackbarStore()
@@ -35,6 +34,4 @@ const buyStamina = (option) => {
             </v-tooltip>
         </v-btn>
     </div>
-
-    <SnackBar />
 </template>

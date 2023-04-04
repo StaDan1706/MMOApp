@@ -1,6 +1,5 @@
 <script setup>
 import BossDefeated from "./BossDefeated.vue"
-import SnackBar from "./SnackBar.vue"
 import { bossData } from "../data/appConfig.js"
 import { ref, watch } from "vue";
 import { useHeroStore } from "../stores/hero";
@@ -15,12 +14,19 @@ const bossStore = useBossStore()
 const options = ref(bossData)
 const { hp } = storeToRefs(bossStore)
 
+const newBoss = () => {
+    hp.value = options.value.maxHp
+}
+
 watch(hp, () => {
     if (hp.value <= 0) {
         addPowerScore(10)
         addGold(1500)
         activateSnackbar(true, "Boss Defeated ! Rewards added!")
+        console.log("No jest ponzej")
     }
+    console.log("Nic nie było")
+
 })
 
 const attack = (attackPower, cost) => {
@@ -33,14 +39,10 @@ const attack = (attackPower, cost) => {
 
     }
 }
-
-const newBoss = () => {
-    hp.value = options.value.maxHp
-}
 </script>
 
 <template>
-    <v-card v-if="hp" class="mx-auto background pa-3" width="300">
+    <v-card v-if="hp > 0" class="mx-auto background pa-3" width="300">
         <v-card-item class="text-center">
             <div>
                 <v-progress-linear class="ma-2" color="red-accent-3" :model-value="hp * 100 / options.maxHp" :height="25">
@@ -66,13 +68,8 @@ const newBoss = () => {
                 <div class="text-caption">Gold : + {{ options.rewards.gold }}</div>
                 <div class="text-caption">Power Score : + {{ options.rewards.power }}</div>
             </div>
-
-
-
         </v-card-item>
     </v-card>
-    <BossDefeated v-else />
-
-    <SnackBar />
+    <BossDefeated v-else v-on:newBoss="newBoss" />
 </template>
 

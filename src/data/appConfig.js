@@ -32,8 +32,11 @@ const menuOptions = [
 ]
 
 const shopOptions = [1, 10, 100]
+
 const maxStamina = 20
+
 const staminaCooldown = 10
+
 const difficulties = [
     {
         option: "easy",

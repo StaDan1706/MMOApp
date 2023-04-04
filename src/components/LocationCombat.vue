@@ -1,5 +1,4 @@
 <script setup>
-import SnackBar from "./SnackBar.vue"
 import { useRoute } from "vue-router";
 import { ref, defineProps, defineEmits } from 'vue';
 import { useHeroStore } from "../stores/hero";
@@ -50,6 +49,4 @@ const attackOpponent = (val) => {
 
         </v-card-actions>
     </v-card>
-
-    <SnackBar />
 </template>
