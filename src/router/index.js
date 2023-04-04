@@ -43,7 +43,11 @@ const router = createRouter({
 
 router.beforeEach((to) => {
     const { nickname } = useHeroStore()
-      if (to.meta.requiresAuth && !nickname) return '/login'
+
+    if (to.meta.requiresAuth && !nickname) return '/login'
+    if (to.name == 'login' && nickname) {
+        return '/'
+    }
 })
 
 

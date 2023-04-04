@@ -3,22 +3,22 @@ import { ref } from 'vue';
 import { shopOptions } from '../data/appConfig';
 import { useHeroStore } from "../stores/hero";
 import { storeToRefs } from "pinia";
+import SnackBar from "./SnackBar.vue"
+import { useSnackbarStore } from "../stores/snackbar"
+
+const { activateSnackbar } = useSnackbarStore()
 
 const store = useHeroStore()
 const { gold, stamina } = storeToRefs(store)
-const snackbar = ref(false)
-const text = ref("")
-const timeout = 2000
+
 
 const buyStamina = (option) => {
     if (store.canBuyStamina({ gold: gold.value, option })) {
-        text.value = "Purchased !"
-        snackbar.value = true
+        activateSnackbar(true, "Purchased !")
         stamina.value += option
         gold.value -= option * 10
     } else {
-        text.value = "Not enough money!"
-        snackbar.value = true
+        activateSnackbar(true, "Not enough money!")
     }
 }
 
@@ -36,13 +36,5 @@ const buyStamina = (option) => {
         </v-btn>
     </div>
 
-    <v-snackbar v-model="snackbar" :timeout="timeout">
-        {{ text }}
-
-        <template v-slot:actions>
-            <v-btn color="pink" variant="text" @click="snackbar = false">
-                Close
-            </v-btn>
-        </template>
-    </v-snackbar>
+    <SnackBar />
 </template>

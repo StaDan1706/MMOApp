@@ -1,15 +1,14 @@
 <script setup>
 import BossDefeated from "./BossDefeated.vue"
+import SnackBar from "./SnackBar.vue"
 import { bossData } from "../data/appConfig.js"
 import { ref, watch } from "vue";
 import { useHeroStore } from "../stores/hero";
 import { useBossStore } from "../stores/boss";
 import { storeToRefs } from "pinia";
+import { useSnackbarStore } from "../stores/snackbar"
 
-const snackbar = ref(false)
-const timeout = 2000
-const snackbarText = ref('')
-
+const { activateSnackbar } = useSnackbarStore()
 const { power, addPowerScore, addGold, consumeStamina } = useHeroStore()
 const { attackBoss } = useBossStore()
 const bossStore = useBossStore()
@@ -20,19 +19,18 @@ watch(hp, () => {
     if (hp.value <= 0) {
         addPowerScore(10)
         addGold(1500)
-        snackbar.value = true
-        snackbarText.value = "Boss Defeated ! Rewards added!"
+        activateSnackbar(true, "Boss Defeated ! Rewards added!")
     }
 })
 
 const attack = (attackPower, cost) => {
     if (consumeStamina(cost)) {
         attackBoss(attackPower)
-        snackbar.value = true
-        snackbarText.value = "Attacked!"
+        activateSnackbar(true, "Attacked!")
+
     } else {
-        snackbar.value = true
-        snackbarText.value = "Not enough stamina!"
+        activateSnackbar(true, "Not Enough Stamina")
+
     }
 }
 
@@ -73,16 +71,8 @@ const newBoss = () => {
 
         </v-card-item>
     </v-card>
-    <BossDefeated v-else/>
+    <BossDefeated v-else />
 
-    <v-snackbar v-model="snackbar" :timeout="timeout">
-        {{ snackbarText }}
-
-        <template v-slot:actions>
-            <v-btn color="blue" @click="snackbar = false">
-                Close
-            </v-btn>
-        </template>
-    </v-snackbar>
+    <SnackBar />
 </template>
 

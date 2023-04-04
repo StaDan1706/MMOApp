@@ -3,6 +3,10 @@ import { ref } from "vue";
 import { useHeroStore } from "../stores/hero";
 import { storeToRefs } from "pinia";
 import router from "../router";
+
+
+
+
 const store = useHeroStore()
 const { setNickname } = useHeroStore()
 const { nickname } = storeToRefs(store)
@@ -21,11 +25,11 @@ const rules = [
 
 const nicknameConfirm = async (nick) => {
     valid.value = await form.value.validate()
-    console.log(valid.value.valid)
+
     if (valid.value.valid === true) {
         setNickname(nick)
         router.push('/')
-    } 
+    }
 }
 </script>
 

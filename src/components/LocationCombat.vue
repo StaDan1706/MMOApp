@@ -1,14 +1,16 @@
 <script setup>
+import SnackBar from "./SnackBar.vue"
 import { useRoute } from "vue-router";
 import { ref, defineProps, defineEmits } from 'vue';
 import { useHeroStore } from "../stores/hero";
+import { useSnackbarStore } from "../stores/snackbar"
+
+const { activateSnackbar } = useSnackbarStore()
 
 const { attack } = useHeroStore()
 const { options, chosenDifficulty } = defineProps(['options', 'chosenDifficulty'])
 const route = useRoute()
-const isWin = ref(false)
-const snackbar = ref(false)
-const timeout = 2000
+
 
 const routeId = options[route.params.id - 1]
 
@@ -19,8 +21,7 @@ const emitQuit = () => {
 }
 
 const attackOpponent = (val) => {
-    isWin.value = attack(val)
-    snackbar.value = true;
+    activateSnackbar(true, attack(val))
 }
 
 </script>
@@ -50,13 +51,5 @@ const attackOpponent = (val) => {
         </v-card-actions>
     </v-card>
 
-    <v-snackbar v-model="snackbar" :timeout="timeout">
-        {{ isWin }}
-
-        <template v-slot:actions>
-            <v-btn color="blue"  @click="snackbar = false">
-                Close
-            </v-btn>
-        </template>
-    </v-snackbar>
+    <SnackBar />
 </template>
