@@ -64,20 +64,20 @@
     },
     {
         "id": "7",
-        "img": "https://micc.garmory-cdn.cloud/obrazki/npc/tyt/hebrehoth_smokoludzie.gif",
-        "name": "Deity Of Dragonmen",
-        "hp": "1900",
-        "rewards": {
-            "gold": 3200
-        }
-    },
-    {
-        "id": "8",
         "img": "https://micc.garmory-cdn.cloud/obrazki/npc/tyt/ice_king.gif",
         "name": "Ice King",
         "hp": "2800",
         "rewards": {
             "gold": 4000
+        }
+    },
+    {
+        "id": "8",
+        "img": "https://micc.garmory-cdn.cloud/obrazki/npc/tyt/hebrehoth_smokoludzie.gif",
+        "name": "Deity Of Dragonmen",
+        "hp": "1900",
+        "rewards": {
+            "gold": 3200
         }
     }
 ]

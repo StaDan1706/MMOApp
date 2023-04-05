@@ -38,6 +38,12 @@ const router = createRouter({
             name: "not found",
             component: () => import("../views/404View.vue")
         },
+        {
+            path: "/counter",
+            name: "counter",
+            component: () => import("../views/CounterView.vue"),
+            meta: { requiresAuth: true }
+        }
     ]
 })
 

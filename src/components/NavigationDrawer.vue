@@ -29,6 +29,11 @@ const items = [
         title: "Shop",
         value: "shop"
     },
+    {
+        icon: "mdi-counter",
+        title: "Counter",
+        value: "counter"
+    },
 ]
 
 

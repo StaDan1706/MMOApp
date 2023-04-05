@@ -4,6 +4,8 @@ import { maxStamina, staminaCooldown } from "../data/appConfig";
 export const useHeroStore = defineStore("hero", {
     state: () => {
         return {
+            totalEarnedMoney: 0,
+            totalMobsKilled: 0,
             nickname: '',
             level: 1,
             experience: 0,
@@ -54,6 +56,7 @@ export const useHeroStore = defineStore("hero", {
         },
         addGold(val) {
             this.gold += val
+            this.totalEarnedMoney += val
         },
         addPowerScore(val) {
             this.power += val
@@ -69,10 +72,11 @@ export const useHeroStore = defineStore("hero", {
         win(num) {
             this.experience += num * 1.2
             this.addLevel()
-            this.addGold(1)
+            this.addGold(Math.floor(Math.random() * 3) + 1)
+            this.totalMobsKilled++
         },
 
-          calculateChance(val) {
+        calculateChance(val) {
             if (this.power >= val) {
                 return 100
             } else if (this.power >= val - 2) {
@@ -84,7 +88,7 @@ export const useHeroStore = defineStore("hero", {
             }
         },
 
-        
+
         attack(opponentPower) {
             if (this.consumeStamina(1)) {
                 const result = this.calculateChance(opponentPower)

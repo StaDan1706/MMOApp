@@ -16,28 +16,20 @@ const quitFromDungeon = () => {
 const { selectedDungeon } = defineProps(['selectedDungeon'])
 
 const { activateSnackbar } = useSnackbarStore()
-const { power, addPowerScore, addGold, consumeStamina } = useHeroStore()
+const { power, consumeStamina } = useHeroStore()
 const { attackBoss } = useBossStore()
 const bossStore = useBossStore()
 const { hp } = storeToRefs(bossStore)
-
-
-watch(hp, () => {
-    if (hp.value <= 0) {
-        addGold(selectedDungeon.rewards.gold)
-        activateSnackbar(true, "Boss Defeated ! Rewards added!")
-    }
-})
 
 const attack = (attackPower, cost) => {
     if (consumeStamina(cost)) {
         attackBoss(attackPower)
         activateSnackbar(true, "Attacked!")
-
     } else {
         activateSnackbar(true, "Not Enough Stamina")
     }
 }
+
 </script>
 
 <template>
