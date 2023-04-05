@@ -21,8 +21,8 @@ const items = [
     },
     {
         icon: "mdi-skull",
-        title: "Boss",
-        value: "boss"
+        title: "Dungeons",
+        value: "dungeon"
     },
     {
         icon: "mdi-flask",

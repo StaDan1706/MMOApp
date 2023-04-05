@@ -28,9 +28,9 @@ const router = createRouter({
             meta: { requiresAuth: true }
         },
         {
-            path: "/boss",
-            name: "boss",
-            component: () => import("../views/BossView.vue"),
+            path: "/dungeon",
+            name: "dungeon",
+            component: () => import("../views/DungeonView.vue"),
             meta: { requiresAuth: true }
         },
         {

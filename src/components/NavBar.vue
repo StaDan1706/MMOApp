@@ -24,7 +24,7 @@ const toggleTheme = () => {
 </script>
 
 <template>
-    <v-app-bar v-if="nickname" class="background" :elevation="10" height="130">
+    <v-app-bar v-if="nickname" v-click-outside="handleClose" class="background" :elevation="10" height="130">
 
         <v-btn @click.stop="drawer = !drawer" prepend-icon="mdi-menu">
             Menu
@@ -40,11 +40,10 @@ const toggleTheme = () => {
             <v-btn icon="mdi-help"></v-btn>
         </template>
     </v-app-bar>
-    
+
     <v-app-bar v-else>
         <h1 class="mx-auto">MMODuel</h1>
     </v-app-bar>
 
     <NavigationDrawer :drawer="drawer" v-on:close="handleClose" />
 </template>
-

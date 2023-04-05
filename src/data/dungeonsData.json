@@ -1,0 +1,83 @@
+[
+    {
+        "id": "0",
+        "img": "https://micc.garmory-cdn.cloud/obrazki/npc/tyt/titanharpy.gif",
+        "name": "Wounded Harpy",
+        "hp": "50",
+        "rewards": {
+            "gold": 400
+        }
+    },
+    {
+        "id": "1",
+        "img": "https://micc.garmory-cdn.cloud/obrazki/npc/tyt/titanbandit.gif",
+        "name": "Bloody Bandit",
+        "hp": "120",
+        "rewards": {
+            "gold": 800
+        }
+    },
+    {
+        "id": "2",
+        "img": "https://micc.garmory-cdn.cloud/obrazki/npc/tyt/titangoblin.gif",
+        "name": "Goblin King",
+        "hp": "240",
+        "rewards": {
+            "gold": 1600
+        }
+    },
+    {
+        "id": "3",
+        "img": "https://micc.garmory-cdn.cloud/obrazki/npc/tyt/lowcz-wspo-driady.gif",
+        "name": "Memories Huntress",
+        "hp": "400",
+        "rewards": {
+            "gold": 3600
+        }
+    },
+    {
+        "id": "4",
+        "img": "https://micc.garmory-cdn.cloud/obrazki/npc/tyt/przyz_demon_sekta.gif",
+        "name": "Demon Summoner",
+        "hp": "600",
+        "rewards": {
+            "gold": 2000
+        }
+    },
+    {
+        "id": "5",
+        "img": "https://micc.garmory-cdn.cloud/obrazki/npc/tyt/maddok-tytan.gif",
+        "name": "Maddok Magua",
+        "hp": "900",
+        "rewards": {
+            "gold": 2400
+        }
+    },
+    {
+        "id": "6",
+        "img": "https://micc.garmory-cdn.cloud/obrazki/npc/tyt/tezcatlipoca.gif",
+        "name": "Tezcapolitza",
+        "hp": "1300",
+        "rewards": {
+            "gold": 2800
+        }
+    },
+    {
+        "id": "7",
+        "img": "https://micc.garmory-cdn.cloud/obrazki/npc/tyt/hebrehoth_smokoludzie.gif",
+        "name": "Deity Of Dragonmen",
+        "hp": "1900",
+        "rewards": {
+            "gold": 3200
+        }
+    },
+    {
+        "id": "8",
+        "img": "https://micc.garmory-cdn.cloud/obrazki/npc/tyt/ice_king.gif",
+        "name": "Ice King",
+        "hp": "2800",
+        "rewards": {
+            "gold": 4000
+        }
+    }
+]

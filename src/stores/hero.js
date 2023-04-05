@@ -69,7 +69,7 @@ export const useHeroStore = defineStore("hero", {
         win(num) {
             this.experience += num * 1.2
             this.addLevel()
-            this.addGold(Math.floor(Math.random() * 10) + 1)
+            this.addGold(1)
         },
 
           calculateChance(val) {

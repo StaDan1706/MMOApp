@@ -1,5 +1,5 @@
 <script setup>
-import gameData from "../data/gameData.json"
+import gameData from "../data/adventureData.json"
 import { ref } from "vue";
 
 import AdventureOption from "../components/AdventureOption.vue"

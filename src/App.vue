@@ -12,6 +12,3 @@ import NavBar from "./components/NavBar.vue"
     <SnackBar />
   </v-app>
 </template>
-
-
-<style scoped></style>

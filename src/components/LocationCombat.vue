@@ -43,7 +43,7 @@ const attackOpponent = (val) => {
                 Attack
             </v-btn>
 
-            <v-btn append-icon="mdi-run-fast d" @click="emitQuit" color="orange" width="100%">
+            <v-btn append-icon="mdi-run-fast" @click="emitQuit" color="orange" width="100%">
                 Run Away
             </v-btn>
 

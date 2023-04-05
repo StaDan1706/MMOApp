@@ -1,12 +1,3 @@
-<script setup>
-import { defineEmits } from 'vue';
-
-const emit = defineEmits(["newBoss"])
-const emitNewBoss = () => {
-    emit("newBoss")
-}
-
-</script>
 <template>
     <v-card class="mx-auto" width="300" variant="outlined">
         <v-card-item class="text-center">
@@ -22,11 +13,5 @@ const emitNewBoss = () => {
 
             </div>
         </v-card-item>
-
-        <v-card-actions class="d-flex justify-center pa-5">
-            <v-btn @click="emitNewBoss" variant="outlined">
-                Fight again!
-            </v-btn>
-        </v-card-actions>
     </v-card>
 </template>
