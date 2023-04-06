@@ -1,5 +1,6 @@
 <script setup>
 import { defineProps, defineEmits } from 'vue';
+import { navbarOptions } from '../data/appConfig';
 import router from '../router';
 
 const navigateTo = (value) => {
@@ -13,23 +14,6 @@ const handleClose = () => {
     emit('close')
 }
 
-const items = [
-    {
-        icon: "mdi-sword",
-        title: "Adventure",
-        value: ""
-    },
-    {
-        icon: "mdi-skull",
-        title: "Boss",
-        value: "boss"
-    },
-    {
-        icon: "mdi-flask",
-        title: "Shop",
-        value: "shop"
-    },
-]
 
 
 </script>
@@ -40,7 +24,8 @@ const items = [
         <v-divider></v-divider>
 
         <v-list @click="handleClose()" density="compact" nav>
-            <v-list-item v-for="item in items" :key="item" @click="navigateTo(item.value)" :prepend-icon="item.icon" :title="item.title" ></v-list-item>
+            <v-list-item v-for="option in navbarOptions" :key="option" @click="navigateTo(option.value)" :prepend-icon="option.icon"
+                :title="option.title"></v-list-item>
         </v-list>
 
     </v-navigation-drawer>

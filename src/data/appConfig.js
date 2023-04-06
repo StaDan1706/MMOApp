@@ -1,15 +1,3 @@
-const bossData =
-{
-    "id": "summoner",
-    "img": "https://micc.garmory-cdn.cloud/obrazki/npc/tyt/przyz_demon_sekta.gif",
-    "maxHp": 100,
-    "rewards": {
-        "gold": 1500,
-        "power": 10
-    }
-}
-
-
 const menuOptions = [
     {
         "id": "locations",
@@ -32,8 +20,11 @@ const menuOptions = [
 ]
 
 const shopOptions = [1, 10, 100]
+
 const maxStamina = 20
+
 const staminaCooldown = 10
+
 const difficulties = [
     {
         option: "easy",
@@ -49,6 +40,35 @@ const difficulties = [
     }
 ]
 
+const navbarOptions = [
+    {
+        icon: "mdi-bag-personal",
+        title: "Backpack",
+        value: "backpack"
+    },
+    {
+        icon: "mdi-sword",
+        title: "Adventure",
+        value: ""
+    },
+    {
+        icon: "mdi-skull",
+        title: "Dungeons",
+        value: "dungeon"
+    },
+    {
+        icon: "mdi-flask",
+        title: "Shop",
+        value: "shop"
+    },
+    {
+        icon: "mdi-counter",
+        title: "Counter",
+        value: "counter"
+    }
+]
 
 
-export { bossData, menuOptions, shopOptions, maxStamina, staminaCooldown, difficulties }
+
+
+export { menuOptions, shopOptions, maxStamina, staminaCooldown, difficulties, navbarOptions }

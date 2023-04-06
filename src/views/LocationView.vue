@@ -1,6 +1,6 @@
 <script setup>
 import LocationDifficulty from "../components/LocationDifficulty.vue"
-import menuOptions from "../data/gameData.json"
+import menuOptions from "../data/adventureData.json"
 import LocationCombat from "../components/LocationCombat.vue";
 import { ref } from "vue";
 
