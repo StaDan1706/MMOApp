@@ -43,6 +43,12 @@ const router = createRouter({
             name: "counter",
             component: () => import("../views/CounterView.vue"),
             meta: { requiresAuth: true }
+        },
+        {
+            path: "/backpack",
+            name: "backpack",
+            component: () => import("../views/BackpackView.vue"),
+            meta: { requiresAuth: true }
         }
     ]
 })

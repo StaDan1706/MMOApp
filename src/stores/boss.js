@@ -16,15 +16,18 @@ export const useBossStore = defineStore("boss", {
     },
     actions: {
         setNewDungeon() {
+            this.actualDungeonIndex++
             this.hp = gameData[this.actualDungeonIndex].hp
         },
         attackBoss(val) {
             this.hp -= val
             if (this.hp <= 0) {
                 addGold(gameData[this.actualDungeonIndex].rewards.gold)
-                this.actualDungeonIndex++
+                activateSnackbar(true, `Boss Defeated ! Reward : ${gameData[this.actualDungeonIndex].rewards.gold} gold!`)
                 this.setNewDungeon()
-                activateSnackbar(true, "Boss Defeated ! Rewards added!")
+                return true
+            } else {
+                activateSnackbar(true, "Attacked!")
             }
         }
     },

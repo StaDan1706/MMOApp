@@ -40,6 +40,35 @@ const difficulties = [
     }
 ]
 
+const navbarOptions = [
+    {
+        icon: "mdi-bag-personal",
+        title: "Backpack",
+        value: "backpack"
+    },
+    {
+        icon: "mdi-sword",
+        title: "Adventure",
+        value: ""
+    },
+    {
+        icon: "mdi-skull",
+        title: "Dungeons",
+        value: "dungeon"
+    },
+    {
+        icon: "mdi-flask",
+        title: "Shop",
+        value: "shop"
+    },
+    {
+        icon: "mdi-counter",
+        title: "Counter",
+        value: "counter"
+    }
+]
 
 
-export { menuOptions, shopOptions, maxStamina, staminaCooldown, difficulties }
+
+
+export { menuOptions, shopOptions, maxStamina, staminaCooldown, difficulties, navbarOptions }

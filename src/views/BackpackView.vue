@@ -1,0 +1,3 @@
+<template>
+   Miszke uwu
+</template>

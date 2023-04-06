@@ -6,7 +6,7 @@ const { totalEarnedMoney, totalMobsKilled } = useHeroStore()
 </script>
 
 <template>
-    <v-container>
+    <v-container class="ma-10">
         <v-row justify="space-around">
             <v-card width="400">
 

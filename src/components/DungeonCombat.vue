@@ -1,7 +1,7 @@
 <script setup>
-import BossDefeated from "./BossDefeated.vue"
+import DungeonDefeated from "./DungeonDefeated.vue"
 
-import { defineEmits, watch, defineProps } from "vue";
+import { defineEmits, defineProps } from "vue";
 import { useHeroStore } from "../stores/hero";
 import { useBossStore } from "../stores/boss";
 import { storeToRefs } from "pinia";
@@ -23,8 +23,9 @@ const { hp } = storeToRefs(bossStore)
 
 const attack = (attackPower, cost) => {
     if (consumeStamina(cost)) {
-        attackBoss(attackPower)
-        activateSnackbar(true, "Attacked!")
+       if(attackBoss(attackPower)) {
+        quitFromDungeon()
+       }
     } else {
         activateSnackbar(true, "Not Enough Stamina")
     }
@@ -65,6 +66,6 @@ const attack = (attackPower, cost) => {
             </div>
         </v-card-item>
     </v-card>
-    <BossDefeated v-else />
+    <DungeonDefeated v-else />
 </template>
 
