@@ -1,6 +1,4 @@
 <script setup>
-import DungeonDefeated from "./DungeonDefeated.vue"
-
 import { defineEmits, defineProps } from "vue";
 import { useHeroStore } from "../stores/hero";
 import { useBossStore } from "../stores/boss";
@@ -34,7 +32,7 @@ const attack = (attackPower, cost) => {
 </script>
 
 <template>
-    <v-card v-if="hp > 0" class="mx-auto background pa-3" width="300">
+    <v-card class="mx-auto background pa-3" width="300">
         <v-card-item class="text-center">
             <div>
                 <v-progress-linear class="ma-2" color="red-accent-3" :model-value="hp * 100 / selectedDungeon.hp"
@@ -66,6 +64,5 @@ const attack = (attackPower, cost) => {
             </div>
         </v-card-item>
     </v-card>
-    <DungeonDefeated v-else />
 </template>
 

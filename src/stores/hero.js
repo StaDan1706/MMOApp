@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { maxStamina, staminaCooldown } from "../data/appConfig";
+import { maxStamina, staminaCooldown, rarities, types, itemsPool } from "../data/appConfig";
 
 export const useHeroStore = defineStore("hero", {
     state: () => {
@@ -15,6 +15,10 @@ export const useHeroStore = defineStore("hero", {
             seconds: staminaCooldown,
             gold: 0,
             staminaIsRestoring: false,
+            backpack: [],
+            weapon: null,
+            armor: null,
+            necklace: null
         }
     },
     actions: {
@@ -99,6 +103,66 @@ export const useHeroStore = defineStore("hero", {
                 } else return "Fight Lost !"
             } else return "Not Enough Stamina !"
         },
+        removeFromBackpack(item) {
+            const index = this.backpack.indexOf(item)
+            if (index > -1) {
+                this.backpack.splice(index, 1)
+            }
+        },
+
+        itemGenerator(enemyValue) {
+            const type = types[Math.floor(Math.random() * types.length)]
+            const rarity = rarities[Math.floor(Math.random() * rarities.length)]
+            const score = 1 + enemyValue + rarities.indexOf(rarity) * 4
+            const value = Math.floor(score/2)
+
+            this.backpack.push(
+                {
+                    itemId: Math.floor(Math.random() * 10000000000),
+                    itemType: type,
+                    itemImg: itemsPool[type][rarity][Math.floor(Math.random() * itemsPool[type][rarity].length)].img,
+                    itemName: itemsPool[type][rarity][Math.floor(Math.random() * itemsPool[type][rarity].length)].name,
+                    itemPowerScore: score,
+                    itemValue: value,
+                    itemRarity: rarity,
+                }
+            )
+        },
+        addToBackpack(item) {
+            this.backpack.push(item)
+        },
+        equip(item) {
+            this.removeFromBackpack(item)
+            if (item.itemType == 'weapon') {
+                if (this.weapon) {
+                    this.addToBackpack(this.weapon)
+                }
+                this.weapon = item
+            } else if (item.itemType == 'armor') {
+                if (this.armor) {
+                    this.addToBackpack(this.armor)
+                }
+                this.armor = item
+            } else {
+                if (this.necklace) {
+                    this.addToBackpack(this.necklace)
+                }
+                this.necklace = item
+            }
+        },
+
+        unequip(slot) {
+            if (slot == 'weapon') {
+                this.addToBackpack(this.weapon)
+                this.weapon = null
+            } else if (slot == 'armor') {
+                this.addToBackpack(this.armor)
+                this.armor = null
+            } else {
+                this.addToBackpack(this.necklace)
+                this.necklace = null
+            }
+        }
     },
 
     persist: {
