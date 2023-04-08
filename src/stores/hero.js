@@ -113,8 +113,8 @@ export const useHeroStore = defineStore("hero", {
         itemGenerator(enemyValue) {
             const type = types[Math.floor(Math.random() * types.length)]
             const rarity = rarities[Math.floor(Math.random() * rarities.length)]
-            const score = 1 + enemyValue + rarities.indexOf(rarity) * 4
-            const value = Math.floor(score/2)
+            const score = Math.floor(enemyValue + Math.pow(rarities.indexOf(rarity), 2))
+            const value = Math.pow(rarities.indexOf(rarity) + 1, 2)
 
             this.backpack.push(
                 {
