@@ -4,6 +4,10 @@ import { storeToRefs } from 'pinia';
 const store = useHeroStore()
 const { backpack } = storeToRefs(store)
 
+const pol = (e) => {
+    e.preventDefault();
+    console.log(e)
+}
 
 </script>
 
@@ -15,7 +19,10 @@ const { backpack } = storeToRefs(store)
         <v-card v-for="n in 21" :key="n" class="cell" elevation="10">
 
             <div v-if="backpack[n - 1]">
-                <v-img @click="store.equip(backpack[n-1])" :class="backpack[n - 1].itemRarity + ' item'" :src="backpack[n - 1].itemImg"></v-img>
+                <v-img 
+                @click="store.equipItem(backpack[n-1])" 
+                @click.right="store.sellItem(backpack[n-1], $event)"
+                :class="backpack[n - 1].itemRarity + ' item'" :src="backpack[n - 1].itemImg"></v-img>
 
                 <v-tooltip activator="parent" location="top">
                     <div class="font-weight-bold">{{ backpack[n - 1].itemName }}</div>

@@ -131,7 +131,7 @@ export const useHeroStore = defineStore("hero", {
         addToBackpack(item) {
             this.backpack.push(item)
         },
-        equip(item) {
+        equipItem(item) {
             this.removeFromBackpack(item)
             if (item.itemType == 'weapon') {
                 if (this.weapon) {
@@ -149,6 +149,11 @@ export const useHeroStore = defineStore("hero", {
                 }
                 this.necklace = item
             }
+        },
+        sellItem(item, event) {
+            event.preventDefault()
+            this.gold += item.itemValue
+            this.removeFromBackpack(item)
         },
 
         unequip(slot) {

@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import AppBackpack from '../components/AppBackpack.vue';
 import { shopOptions } from '../data/appConfig';
 import { useHeroStore } from "../stores/hero";
 import { storeToRefs } from "pinia";
@@ -25,6 +25,8 @@ const buyStamina = (option) => {
 
 <template>
     <div class="mt-10 d-flex flex-column">
+        <AppBackpack />
+
         <v-btn prepend-icon="mdi-flask" class="mt-8" variant="outlined" size="large" v-for="option in shopOptions"
             @click="buyStamina(option)">
             {{ option }} stamina
