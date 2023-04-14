@@ -149,39 +149,22 @@ export const useHeroStore = defineStore("hero", {
         },
         equipItem(item) {
             this.removeFromBackpack(item)
-            if (item.itemType == 'weapon') {
-                if (this.equipment.weapon) {
-                    this.addToBackpack(this.equipment.weapon)
-                }
-                this.equipment.weapon = item
-            } else if (item.itemType == 'armor') {
-                if (this.equipment.armor) {
-                    this.addToBackpack(this.equipment.armor)
-                }
-                this.equipment.armor = item
-            } else {
-                if (this.equipment.necklace) {
-                    this.addToBackpack(this.equipment.necklace)
-                }
-                this.equipment.necklace = item
+
+            if (this.equipment[item.itemType]) {
+                this.addToBackpack(this.equipment[item.itemType])
             }
+            this.equipment[item.itemType] = item
+
+        },
+        unequip(slot) {
+            this.addToBackpack(this.equipment[slot.itemType])
+            this.equipment[slot.itemType] = null
+
         },
         sellItem(item, event) {
             event.preventDefault()
             this.addGold(item.itemValue)
             this.removeFromBackpack(item)
-        },
-        unequip(slot) {
-            if (slot.itemType == 'weapon') {
-                this.addToBackpack(this.equipment.weapon)
-                this.equipment.weapon = null
-            } else if (slot.itemType == 'armor') {
-                this.addToBackpack(this.equipment.armor)
-                this.equipment.armor = null
-            } else {
-                this.addToBackpack(this.equipment.necklace)
-                this.equipment.necklace = null
-            }
         }
     },
 
