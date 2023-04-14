@@ -1,6 +1,7 @@
 <script setup>
 import { useHeroStore } from '../stores/hero';
 import { storeToRefs } from 'pinia';
+import ItemTooltip from "./ItemTooltip.vue"
 const store = useHeroStore()
 const { equipment } = storeToRefs(store)
 
@@ -10,12 +11,7 @@ const { equipment } = storeToRefs(store)
         <v-card v-for="item in equipment" class="cell" elevation="10">
             <div v-if="item">
                 <v-img @click="store.unequip(item)" :class="item.itemRarity + ' item'" :src="item.itemImg"></v-img>
-                <v-tooltip activator="parent" location="top">
-                    <div class="font-weight-bold">{{ item.itemName }}</div>
-                    <div :class="item.itemRarity + ' text-center'">*{{ item.itemRarity }}*</div>
-                    <div>itemPowerScore : {{ item.itemPowerScore }}</div>
-                    <div>itemValue : {{ item.itemValue }}</div>
-                </v-tooltip>
+                <ItemTooltip :item="item"/>
             </div>
         </v-card>
 

@@ -1,6 +1,7 @@
 <script setup>
 import { useHeroStore } from '../stores/hero';
 import { storeToRefs } from 'pinia';
+import ItemTooltip from './ItemTooltip.vue';
 const store = useHeroStore()
 const { backpack } = storeToRefs(store)
 
@@ -19,17 +20,10 @@ const pol = (e) => {
         <v-card v-for="n in 21" :key="n" class="cell" elevation="10">
 
             <div v-if="backpack[n - 1]">
-                <v-img 
-                @click="store.equipItem(backpack[n-1])" 
-                @click.right="store.sellItem(backpack[n-1], $event)"
-                :class="backpack[n - 1].itemRarity + ' item'" :src="backpack[n - 1].itemImg"></v-img>
+                <v-img @click="store.equipItem(backpack[n - 1])" @click.right="store.sellItem(backpack[n - 1], $event)"
+                    :class="backpack[n - 1].itemRarity + ' item'" :src="backpack[n - 1].itemImg"></v-img>
 
-                <v-tooltip activator="parent" location="top">
-                    <div class="font-weight-bold">{{ backpack[n - 1].itemName }}</div>
-                    <div :class="backpack[n - 1].itemRarity + ' text-center'">*{{ backpack[n - 1].itemRarity }}*</div>
-                    <div>Score : {{ backpack[n - 1].itemPowerScore }}</div>
-                    <div>Value : {{ backpack[n - 1].itemValue }}</div>
-                </v-tooltip>
+                <ItemTooltip :item="backpack[n - 1]" />
             </div>
         </v-card>
     </div>

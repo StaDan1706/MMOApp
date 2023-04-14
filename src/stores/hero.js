@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import { maxStamina, staminaCooldown, rarities, types, itemsPool } from "../data/appConfig";
+import { useSnackbarStore } from "../stores/snackbar"
 
 export const useHeroStore = defineStore("hero", {
     state: () => {
@@ -67,7 +68,6 @@ export const useHeroStore = defineStore("hero", {
         addPowerScore(val) {
             this.power += val
         },
-
         addLevel() {
             if (this.experience >= this.requiredExperience) {
                 this.experience = this.experience - this.requiredExperience
@@ -76,11 +76,11 @@ export const useHeroStore = defineStore("hero", {
                 this.requiredExperience = Math.pow((this.level * 1.5), 2)
             }
         },
-
         win(num) {
             this.experience += num * 1.2
             this.addLevel()
             this.totalMobsKilled++
+            this.itemGenerator(num)
         },
 
         calculateChance(val) {
@@ -94,6 +94,22 @@ export const useHeroStore = defineStore("hero", {
                 return 0
             }
         },
+
+
+        attack(opponentPower) {
+            if (this.backpack.length >= 21) {
+                return "No inventory space, sell items to keep fighting"
+            }
+            if (this.consumeStamina(1)) {
+                const result = this.calculateChance(opponentPower)
+                const draw = Math.floor(Math.random() * 100) + 1
+                if (draw <= result) {
+                    this.win(opponentPower)
+                    return "You Won !"
+                } else return "Fight Lost !"
+            } else return "Not Enough Stamina !"
+        },
+
         calculateRarity() {
             const rarity = Math.random() * 1000
             if (rarity < 2) {
@@ -106,20 +122,6 @@ export const useHeroStore = defineStore("hero", {
                 return 'common'
             }
         },
-
-
-        attack(opponentPower) {
-            if (this.consumeStamina(1)) {
-                const result = this.calculateChance(opponentPower)
-                const draw = Math.floor(Math.random() * 100) + 1
-                if (draw <= result) {
-                    this.win(opponentPower)
-                    return "You Won !"
-                } else return "Fight Lost !"
-            } else return "Not Enough Stamina !"
-        },
-
-
         itemGenerator(enemyValue) {
             const type = types[Math.floor(Math.random() * types.length)]
             const rarity = this.calculateRarity()
@@ -148,18 +150,28 @@ export const useHeroStore = defineStore("hero", {
             this.backpack.push(item)
         },
         equipItem(item) {
+            let oldItem = null
             this.removeFromBackpack(item)
 
             if (this.equipment[item.itemType]) {
-                this.addToBackpack(this.equipment[item.itemType])
+                oldItem = this.equipment[item.itemType]
             }
             this.equipment[item.itemType] = item
+            this.power += item.itemPowerScore
+            if (oldItem) {
+                this.addToBackpack(oldItem)
+            }
 
         },
-        unequip(slot) {
-            this.addToBackpack(this.equipment[slot.itemType])
-            this.equipment[slot.itemType] = null
+        unequip(item) {
+            if (this.backpack.length >= 21) {
+                const { activateSnackbar } = useSnackbarStore()
+                return activateSnackbar(true, "No space in the backpack")
 
+            }
+            this.addToBackpack(this.equipment[item.itemType])
+            this.equipment[item.itemType] = null
+            this.power -= item.itemPowerScore
         },
         sellItem(item, event) {
             event.preventDefault()
