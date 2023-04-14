@@ -155,6 +155,7 @@ export const useHeroStore = defineStore("hero", {
 
             if (this.equipment[item.itemType]) {
                 oldItem = this.equipment[item.itemType]
+                this.power -= this.equipment[item.itemType].itemPowerScore
             }
             this.equipment[item.itemType] = item
             this.power += item.itemPowerScore
