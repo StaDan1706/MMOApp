@@ -2,49 +2,24 @@
 import { useHeroStore } from '../stores/hero';
 import { storeToRefs } from 'pinia';
 const store = useHeroStore()
-const { weapon, armor, necklace } = storeToRefs(store)
+const { equipment } = storeToRefs(store)
 
 </script>
 <template>
     <div class="eq-container d-flex align-center justify-center mt-5">
-        <v-card class="cell" elevation="10">
-            <div v-if="weapon">
-                <v-img @click="store.unequip('weapon')" :class="weapon.itemRarity + ' item'" :src="weapon.itemImg"></v-img>
-
+        <v-card v-for="item in equipment" class="cell" elevation="10">
+            <div v-if="item">
+                <v-img @click="store.unequip(item)" :class="item.itemRarity + ' item'" :src="item.itemImg"></v-img>
                 <v-tooltip activator="parent" location="top">
-                    <div class="font-weight-bold">{{ weapon.itemName }}</div>
-                    <div :class="weapon.itemRarity + ' text-center'">*{{ weapon.itemRarity }}*</div>
-                    <div>itemPowerScore : {{ weapon.itemPowerScore }}</div>
-                    <div>itemValue : {{ weapon.itemValue }}</div>
+                    <div class="font-weight-bold">{{ item.itemName }}</div>
+                    <div :class="item.itemRarity + ' text-center'">*{{ item.itemRarity }}*</div>
+                    <div>itemPowerScore : {{ item.itemPowerScore }}</div>
+                    <div>itemValue : {{ item.itemValue }}</div>
                 </v-tooltip>
             </div>
         </v-card>
 
-        <v-card class="cell" elevation="10">
-            <div v-if="armor">
-                <v-img @click="store.unequip('armor')" :class="armor.itemRarity + ' item'" :src="armor.itemImg"></v-img>
 
-                <v-tooltip activator="parent" location="top">
-                    <div class="font-weight-bold">{{ armor.itemName }}</div>
-                    <div :class="armor.itemRarity + ' text-center'">*{{ armor.itemRarity }}*</div>
-                    <div>itemPowerScore : {{ armor.itemPowerScore }}</div>
-                    <div>itemValue : {{ armor.itemValue }}</div>
-                </v-tooltip>
-            </div>
-        </v-card>
-
-        <v-card class="cell" elevation="10">
-            <div v-if="necklace">
-                <v-img @click="store.unequip('necklace')" :class="necklace.itemRarity + ' item'" :src="necklace.itemImg"></v-img>
-
-                <v-tooltip activator="parent" location="top">
-                    <div class="font-weight-bold">{{ necklace.itemName }}</div>
-                    <div :class="necklace.itemRarity + ' text-center'">*{{ necklace.itemRarity }}*</div>
-                    <div>itemPowerScore : {{ necklace.itemPowerScore }}</div>
-                    <div>itemValue : {{ necklace.itemValue }}</div>
-                </v-tooltip>
-            </div>
-        </v-card>
     </div>
 </template>
 

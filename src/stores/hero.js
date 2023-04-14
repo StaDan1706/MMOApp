@@ -16,9 +16,11 @@ export const useHeroStore = defineStore("hero", {
             gold: 0,
             staminaIsRestoring: false,
             backpack: [],
-            weapon: null,
-            armor: null,
-            necklace: null
+            equipment: {
+                weapon: null,
+                armor: null,
+                necklace: null
+            }
         }
     },
     actions: {
@@ -65,18 +67,19 @@ export const useHeroStore = defineStore("hero", {
         addPowerScore(val) {
             this.power += val
         },
+
         addLevel() {
             if (this.experience >= this.requiredExperience) {
-                this.experience = 0
+                this.experience = this.experience - this.requiredExperience
                 this.level += 1
                 this.addPowerScore(1)
                 this.requiredExperience = Math.pow((this.level * 1.5), 2)
             }
         },
+
         win(num) {
             this.experience += num * 1.2
             this.addLevel()
-            this.addGold(Math.floor(Math.random() * 3) + 1)
             this.totalMobsKilled++
         },
 
@@ -91,6 +94,18 @@ export const useHeroStore = defineStore("hero", {
                 return 0
             }
         },
+        calculateRarity() {
+            const rarity = Math.random() * 1000
+            if (rarity < 2) {
+                return 'legendary'
+            } else if (rarity < 20) {
+                return 'heroic'
+            } else if (rarity < 100) {
+                return 'unique'
+            } else {
+                return 'common'
+            }
+        },
 
 
         attack(opponentPower) {
@@ -103,16 +118,11 @@ export const useHeroStore = defineStore("hero", {
                 } else return "Fight Lost !"
             } else return "Not Enough Stamina !"
         },
-        removeFromBackpack(item) {
-            const index = this.backpack.indexOf(item)
-            if (index > -1) {
-                this.backpack.splice(index, 1)
-            }
-        },
+
 
         itemGenerator(enemyValue) {
             const type = types[Math.floor(Math.random() * types.length)]
-            const rarity = rarities[Math.floor(Math.random() * rarities.length)]
+            const rarity = this.calculateRarity()
             const score = Math.floor(enemyValue + Math.pow(rarities.indexOf(rarity), 2))
             const value = Math.pow(rarities.indexOf(rarity) + 1, 2)
 
@@ -128,44 +138,49 @@ export const useHeroStore = defineStore("hero", {
                 }
             )
         },
+        removeFromBackpack(item) {
+            const index = this.backpack.indexOf(item)
+            if (index > -1) {
+                this.backpack.splice(index, 1)
+            }
+        },
         addToBackpack(item) {
             this.backpack.push(item)
         },
         equipItem(item) {
             this.removeFromBackpack(item)
             if (item.itemType == 'weapon') {
-                if (this.weapon) {
-                    this.addToBackpack(this.weapon)
+                if (this.equipment.weapon) {
+                    this.addToBackpack(this.equipment.weapon)
                 }
-                this.weapon = item
+                this.equipment.weapon = item
             } else if (item.itemType == 'armor') {
-                if (this.armor) {
-                    this.addToBackpack(this.armor)
+                if (this.equipment.armor) {
+                    this.addToBackpack(this.equipment.armor)
                 }
-                this.armor = item
+                this.equipment.armor = item
             } else {
-                if (this.necklace) {
-                    this.addToBackpack(this.necklace)
+                if (this.equipment.necklace) {
+                    this.addToBackpack(this.equipment.necklace)
                 }
-                this.necklace = item
+                this.equipment.necklace = item
             }
         },
         sellItem(item, event) {
             event.preventDefault()
-            this.gold += item.itemValue
+            this.addGold(item.itemValue)
             this.removeFromBackpack(item)
         },
-
         unequip(slot) {
-            if (slot == 'weapon') {
-                this.addToBackpack(this.weapon)
-                this.weapon = null
-            } else if (slot == 'armor') {
-                this.addToBackpack(this.armor)
-                this.armor = null
+            if (slot.itemType == 'weapon') {
+                this.addToBackpack(this.equipment.weapon)
+                this.equipment.weapon = null
+            } else if (slot.itemType == 'armor') {
+                this.addToBackpack(this.equipment.armor)
+                this.equipment.armor = null
             } else {
-                this.addToBackpack(this.necklace)
-                this.necklace = null
+                this.addToBackpack(this.equipment.necklace)
+                this.equipment.necklace = null
             }
         }
     },
