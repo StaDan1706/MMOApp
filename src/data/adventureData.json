@@ -9,7 +9,8 @@
             "easy": {
                 "monsterName": "deer",
                 "img": "https://micc.garmory-cdn.cloud/obrazki/npc/zwi/bestia54.gif",
-                "power": 1
+                "power": 1,
+                "itemDropPower": 1
             },
             "normal": {
                 "monsterName": "Snake",

@@ -68,7 +68,199 @@ const navbarOptions = [
     }
 ]
 
+const rarities = ['common', 'unique', 'heroic', 'legendary']
+const types = ['weapon', 'armor', 'necklace']
+
+const itemsPool = {
+    'weapon': {
+        'common':
+            [
+                {
+                    name: "Rusted Sword",
+                    img: "https://micc.garmory-cdn.cloud/obrazki/itemy//mie/miecz61.gif"
+                },
+                {
+                    name: "Dagger",
+                    img: "https://micc.garmory-cdn.cloud/obrazki/itemy//mie/kh-sztylet2.gif"
+                },
+                {
+                    name: "Wooden Axe",
+                    img: "https://micc.garmory-cdn.cloud/obrazki/itemy/que/siekiera.gif"
+                },
+            ],
+        'unique':
+            [
+                {
+                    name: "Rusted Sword",
+                    img: "https://micc.garmory-cdn.cloud/obrazki/itemy/drz/tasak2.gif"
+                },
+                {
+                    name: "Rusted Sword",
+                    img: "https://micc.garmory-cdn.cloud/obrazki/itemy//mie/miecz222.gif"
+                },
+                {
+                    name: "Rusted Sword",
+                    img: "https://micc.garmory-cdn.cloud/obrazki/itemy//mie/miecz222.gif"
+                }
+            ],
+        'heroic':
+            [
+                {
+                    name: "Rusted Sword",
+                    img: "https://micc.garmory-cdn.cloud/obrazki/itemy/eve/wev12.gif"
+                },
+                {
+                    name: "Rusted Sword",
+                    img: "https://micc.garmory-cdn.cloud/obrazki/itemy//mie/miecz257.gif"
+                },
+                {
+                    name: "Rusted Sword",
+                    img: "https://micc.garmory-cdn.cloud/obrazki/itemy//mie/miecz70.gif"
+                }
+            ],
+        'legendary':
+            [
+                {
+                    name: "Rusted Sword",
+                    img: "https://micc.garmory-cdn.cloud/obrazki/itemy//mie/miecz468.gif"
+                },
+                {
+                    name: "Rusted Sword",
+                    img: "https://micc.garmory-cdn.cloud/obrazki/itemy//mie/shj-sword05.gif"
+                },
+                {
+                    name: "Rusted Sword",
+                    img: "https://micc.garmory-cdn.cloud/obrazki/itemy//mie/miecz483.gif"
+                }
+            ]
+    },
+    'armor': {
+        'common':
+            [
+                {
+                    name: "Rusted Sword",
+                    img: "https://micc.garmory-cdn.cloud/obrazki/itemy//kaf/zbroja03.gif"
+                },
+                {
+                    name: "Rusted Sword",
+                    img: "https://micc.garmory-cdn.cloud/obrazki/itemy/zbr/gob_zbr1.gif"
+                },
+                {
+                    name: "Rusted Sword",
+                    img: "https://micc.garmory-cdn.cloud/obrazki/itemy//zbr/zbroja647.gif"
+                }
+            ],
+        'unique':
+            [
+                {
+                    name: "Rusted Sword",
+                    img: "https://micc.garmory-cdn.cloud/obrazki/itemy//zbr/patryk_zbroja3.gif"
+                },
+                {
+                    name: "Rusted Sword",
+                    img: "https://micc.garmory-cdn.cloud/obrazki/itemy/zbr/zbroja422.gif"
+                },
+                {
+                    name: "Rusted Sword",
+                    img: "https://micc.garmory-cdn.cloud/obrazki/itemy//zbr/shj-zbr05.gif"
+                }
+            ],
+        'heroic':
+            [
+                {
+                    name: "Rusted Sword",
+                    img: "https://micc.garmory-cdn.cloud/obrazki/itemy//zbr/zbrojakosc.gif"
+                },
+                {
+                    name: "Rusted Sword",
+                    img: "https://micc.garmory-cdn.cloud/obrazki/itemy//zbr/tuz436.gif"
+                },
+                {
+                    name: "Rusted Sword",
+                    img: "https://micc.garmory-cdn.cloud/obrazki/itemy//zbr/mol_zbroja01.gif"
+                }
+            ],
+        'legendary':
+            [
+                {
+                    name: "Rusted Sword",
+                    img: "https://micc.garmory-cdn.cloud/obrazki/itemy//zbr/zbroja365.gif"
+                },
+                {
+                    name: "Rusted Sword",
+                    img: "https://micc.garmory-cdn.cloud/obrazki/itemy//zbr/shj-zbr06.gif"
+                },
+                {
+                    name: "Rusted Sword",
+                    img: "https://micc.garmory-cdn.cloud/obrazki/itemy/zbr/leg11zbr5a.gif"
+                }
+            ]
+    },
+    'necklace': {
+        'common':
+            [
+                {
+                    name: "Rusted Sword",
+                    img: "https://micc.garmory-cdn.cloud/obrazki/itemy//nas/naszyjnik110.gif"
+                },
+                {
+                    name: "Rusted Sword",
+                    img: "https://micc.garmory-cdn.cloud/obrazki/itemy/nas/naswilka2.gif"
+                },
+                {
+                    name: "Rusted Sword",
+                    img: "https://micc.garmory-cdn.cloud/obrazki/itemy/nas/naszyjnik115.gif"
+                }
+            ],
+        'unique':
+            [
+                {
+                    name: "Rusted Sword",
+                    img: "https://micc.garmory-cdn.cloud/obrazki/itemy//nas/naszyjnik323.gif"
+                },
+                {
+                    name: "Rusted Sword",
+                    img: "https://micc.garmory-cdn.cloud/obrazki/itemy/nas/kos-nasz01.gif"
+                },
+                {
+                    name: "Rusted Sword",
+                    img: "https://micc.garmory-cdn.cloud/obrazki/itemy/eve/ev-lapka.gif"
+                }
+            ],
+        'heroic':
+            [
+                {
+                    name: "Rusted Sword",
+                    img: "https://micc.garmory-cdn.cloud/obrazki/itemy//nas/kupa_nasz1.gif"
+                },
+                {
+                    name: "Rusted Sword",
+                    img: "https://micc.garmory-cdn.cloud/obrazki/itemy//nas/naszyjnik101.gif"
+                },
+                {
+                    name: "Rusted Sword",
+                    img: "https://micc.garmory-cdn.cloud/obrazki/itemy//nas/naszyjnik842.gif"
+                }
+            ],
+        'legendary':
+            [
+                {
+                    name: "Rusted Sword",
+                    img: "https://micc.garmory-cdn.cloud/obrazki/itemy//nas/tuz205.gif"
+                },
+                {
+                    name: "Rusted Sword",
+                    img: "https://micc.garmory-cdn.cloud/obrazki/itemy//nas/naszyjnik639.gif"
+                },
+                {
+                    name: "Rusted Sword",
+                    img: "https://micc.garmory-cdn.cloud/obrazki/itemy//eve/mik-broda.gif"
+                }
+            ]
+    }
+}
 
 
 
-export { menuOptions, shopOptions, maxStamina, staminaCooldown, difficulties, navbarOptions }
+
+export { menuOptions, shopOptions, maxStamina, staminaCooldown, difficulties, navbarOptions, rarities, types, itemsPool }
