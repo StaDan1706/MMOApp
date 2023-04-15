@@ -5,20 +5,11 @@ import ItemTooltip from './ItemTooltip.vue';
 const store = useHeroStore()
 const { backpack } = storeToRefs(store)
 
-const pol = (e) => {
-    e.preventDefault();
-    console.log(e)
-}
-
 </script>
 
 <template>
-    <button @click="store.itemGenerator(1)">Dodaj</button>
-
     <div class="bp-container d-flex flex-wrap justify-center">
-
         <v-card v-for="n in 21" :key="n" class="cell" elevation="10">
-
             <div v-if="backpack[n - 1]">
                 <v-img @click="store.equipItem(backpack[n - 1])" @click.right="store.sellItem(backpack[n - 1], $event)"
                     :class="backpack[n - 1].itemRarity + ' item'" :src="backpack[n - 1].itemImg"></v-img>
