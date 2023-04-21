@@ -4,11 +4,11 @@ const { item } = defineProps(['item'])
 </script>
 
 <template>
-    <v-tooltip activator="parent" location="top">
+    <v-tooltip activator="parent" location="top" class="text-center">
         <div class="font-weight-bold">{{ item.itemName }}</div>
-        <div :class="item.itemRarity + ' text-center'">*{{ item.itemRarity }}*</div>
-        <div>itemPowerScore : {{ item.itemPowerScore }}</div>
-        <div>itemValue : {{ item.itemValue }}</div>
+        <div :class="item.itemRarity">*{{ item.itemRarity }}*</div>
+        <div>Power Score : {{ item.itemPowerScore }}</div>
+        <div>Value : {{ item.itemValue }}</div>
     </v-tooltip>
 </template>
 
@@ -33,8 +33,8 @@ const { item } = defineProps(['item'])
 }
 
 .common {
-    border-color: grey;
-    color: gray;
+    border-color: black;
+    color: black;
     font-weight: bold;
 }
 </style>

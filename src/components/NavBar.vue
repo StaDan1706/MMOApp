@@ -26,19 +26,14 @@ const toggleTheme = () => {
 <template>
     <v-app-bar v-if="nickname" v-click-outside="handleClose" class="background" :elevation="10" height="130">
 
-        <v-btn @click.stop="drawer = !drawer" prepend-icon="mdi-menu">
+        <v-btn @click.stop="drawer = !drawer" prepend-icon="mdi-menu" width="80">
             Menu
         </v-btn>
 
-        <v-container class="d-flex justify-center align-center mx-auto self-align-center">
+        <v-container class="d-flex justify-center align-center mx-auto self-align-center stats-container">
             <HeroInfo />
             <HeroStats />
         </v-container>
-
-        <template v-slot:append>
-            <v-btn @click="toggleTheme" icon="mdi-theme-light-dark"></v-btn>
-            <v-btn icon="mdi-help"></v-btn>
-        </template>
     </v-app-bar>
 
     <v-app-bar v-else>
@@ -47,3 +42,10 @@ const toggleTheme = () => {
 
     <NavigationDrawer :drawer="drawer" v-on:close="handleClose" />
 </template>
+<style scoped>
+@media only screen and (max-width: 450px) {
+   .stats-container {
+    flex-direction: column;
+   }
+}
+</style>

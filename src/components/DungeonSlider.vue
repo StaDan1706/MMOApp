@@ -19,7 +19,7 @@ const chooseDungeon = (val) => {
 
 <template>
     <v-sheet class="mx-auto" elevation="8" max-height="400" max-width="700">
-        <v-slide-group direction="horizontal" class="pa-5 mobileSlide" center-active show-arrows>
+        <v-slide-group direction="vertical" class="pa-5 mobileSlide" center-active show-arrows>
             <v-slide-group-item v-for="option in gameData" :key="option.id">
                 <v-card @click="chooseDungeon(option)" class="ma-4" height="175" width="175"
                     :disabled="!(option.id == actualDungeonIndex)" elevation="10"

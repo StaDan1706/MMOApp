@@ -91,45 +91,45 @@ const itemsPool = {
         'unique':
             [
                 {
-                    name: "Rusted Sword",
+                    name: "Butcher's Cleaver",
                     img: "https://micc.garmory-cdn.cloud/obrazki/itemy/drz/tasak2.gif"
                 },
                 {
-                    name: "Rusted Sword",
+                    name: "Rebel Razor",
                     img: "https://micc.garmory-cdn.cloud/obrazki/itemy//mie/miecz222.gif"
                 },
                 {
-                    name: "Rusted Sword",
+                    name: "Rebel Razor",
                     img: "https://micc.garmory-cdn.cloud/obrazki/itemy//mie/miecz222.gif"
                 }
             ],
         'heroic':
             [
                 {
-                    name: "Rusted Sword",
+                    name: "Royal Blade",
                     img: "https://micc.garmory-cdn.cloud/obrazki/itemy/eve/wev12.gif"
                 },
                 {
-                    name: "Rusted Sword",
+                    name: "Dragon Sword",
                     img: "https://micc.garmory-cdn.cloud/obrazki/itemy//mie/miecz257.gif"
                 },
                 {
-                    name: "Rusted Sword",
+                    name: "Ice Smasher",
                     img: "https://micc.garmory-cdn.cloud/obrazki/itemy//mie/miecz70.gif"
                 }
             ],
         'legendary':
             [
                 {
-                    name: "Rusted Sword",
+                    name: "Gut Extractor",
                     img: "https://micc.garmory-cdn.cloud/obrazki/itemy//mie/miecz468.gif"
                 },
                 {
-                    name: "Rusted Sword",
+                    name: "Blade of Dark Power",
                     img: "https://micc.garmory-cdn.cloud/obrazki/itemy//mie/shj-sword05.gif"
                 },
                 {
-                    name: "Rusted Sword",
+                    name: "Sacred Tree Axe",
                     img: "https://micc.garmory-cdn.cloud/obrazki/itemy//mie/miecz483.gif"
                 }
             ]
@@ -138,60 +138,60 @@ const itemsPool = {
         'common':
             [
                 {
-                    name: "Rusted Sword",
+                    name: "Rusted Armor",
                     img: "https://micc.garmory-cdn.cloud/obrazki/itemy//kaf/zbroja03.gif"
                 },
                 {
-                    name: "Rusted Sword",
+                    name: "Old Goblin Armor",
                     img: "https://micc.garmory-cdn.cloud/obrazki/itemy/zbr/gob_zbr1.gif"
                 },
                 {
-                    name: "Rusted Sword",
+                    name: "Wolf Cover",
                     img: "https://micc.garmory-cdn.cloud/obrazki/itemy//zbr/zbroja647.gif"
                 }
             ],
         'unique':
             [
                 {
-                    name: "Rusted Sword",
+                    name: "Dark Armor",
                     img: "https://micc.garmory-cdn.cloud/obrazki/itemy//zbr/patryk_zbroja3.gif"
                 },
                 {
-                    name: "Rusted Sword",
+                    name: "Armor of Faith",
                     img: "https://micc.garmory-cdn.cloud/obrazki/itemy/zbr/zbroja422.gif"
                 },
                 {
-                    name: "Rusted Sword",
+                    name: "Blacksmith armor",
                     img: "https://micc.garmory-cdn.cloud/obrazki/itemy//zbr/shj-zbr05.gif"
                 }
             ],
         'heroic':
             [
                 {
-                    name: "Rusted Sword",
+                    name: "Infernal Bones",
                     img: "https://micc.garmory-cdn.cloud/obrazki/itemy//zbr/zbrojakosc.gif"
                 },
                 {
-                    name: "Rusted Sword",
+                    name: "Fear",
                     img: "https://micc.garmory-cdn.cloud/obrazki/itemy//zbr/tuz436.gif"
                 },
                 {
-                    name: "Rusted Sword",
+                    name: "Medusa Armor",
                     img: "https://micc.garmory-cdn.cloud/obrazki/itemy//zbr/mol_zbroja01.gif"
                 }
             ],
         'legendary':
             [
                 {
-                    name: "Rusted Sword",
+                    name: "Knight's Miraculous Armor",
                     img: "https://micc.garmory-cdn.cloud/obrazki/itemy//zbr/zbroja365.gif"
                 },
                 {
-                    name: "Rusted Sword",
+                    name: "Fear",
                     img: "https://micc.garmory-cdn.cloud/obrazki/itemy//zbr/shj-zbr06.gif"
                 },
                 {
-                    name: "Rusted Sword",
+                    name: "Painworshiper's Armor",
                     img: "https://micc.garmory-cdn.cloud/obrazki/itemy/zbr/leg11zbr5a.gif"
                 }
             ]
@@ -200,60 +200,60 @@ const itemsPool = {
         'common':
             [
                 {
-                    name: "Rusted Sword",
+                    name: "Rusted Necklace",
                     img: "https://micc.garmory-cdn.cloud/obrazki/itemy//nas/naszyjnik110.gif"
                 },
                 {
-                    name: "Rusted Sword",
+                    name: "Wolf Amulet",
                     img: "https://micc.garmory-cdn.cloud/obrazki/itemy/nas/naswilka2.gif"
                 },
                 {
-                    name: "Rusted Sword",
+                    name: "Orc Necklace",
                     img: "https://micc.garmory-cdn.cloud/obrazki/itemy/nas/naszyjnik115.gif"
                 }
             ],
         'unique':
             [
                 {
-                    name: "Rusted Sword",
+                    name: "Fang Necklace",
                     img: "https://micc.garmory-cdn.cloud/obrazki/itemy//nas/naszyjnik323.gif"
                 },
                 {
-                    name: "Rusted Sword",
+                    name: "Blue Necklace",
                     img: "https://micc.garmory-cdn.cloud/obrazki/itemy/nas/kos-nasz01.gif"
                 },
                 {
-                    name: "Rusted Sword",
+                    name: "Crystal Necklace",
                     img: "https://micc.garmory-cdn.cloud/obrazki/itemy/eve/ev-lapka.gif"
                 }
             ],
         'heroic':
             [
                 {
-                    name: "Rusted Sword",
+                    name: "Pendant With Diamonds",
                     img: "https://micc.garmory-cdn.cloud/obrazki/itemy//nas/kupa_nasz1.gif"
                 },
                 {
-                    name: "Rusted Sword",
+                    name: "Possessed Warrior's Necklace",
                     img: "https://micc.garmory-cdn.cloud/obrazki/itemy//nas/naszyjnik101.gif"
                 },
                 {
-                    name: "Rusted Sword",
+                    name: "Shark Tooth Necklace",
                     img: "https://micc.garmory-cdn.cloud/obrazki/itemy//nas/naszyjnik842.gif"
                 }
             ],
         'legendary':
             [
                 {
-                    name: "Rusted Sword",
+                    name: "Santa's Beard",
                     img: "https://micc.garmory-cdn.cloud/obrazki/itemy//nas/tuz205.gif"
                 },
                 {
-                    name: "Rusted Sword",
+                    name: "Hydra's Blood",
                     img: "https://micc.garmory-cdn.cloud/obrazki/itemy//nas/naszyjnik639.gif"
                 },
                 {
-                    name: "Rusted Sword",
+                    name: "Fragrant Resin Pendant",
                     img: "https://micc.garmory-cdn.cloud/obrazki/itemy//eve/mik-broda.gif"
                 }
             ]

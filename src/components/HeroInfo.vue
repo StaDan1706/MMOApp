@@ -5,9 +5,9 @@ const store = useHeroStore()
 const { nickname, experience, requiredExperience, level, stamina } = storeToRefs(store)
 </script>
 <template>
-    <v-card class="d-flex flex-column justify-center align-center background mx-10" width="300">
+    <v-card class="d-flex flex-column justify-center align-center background mx-10 hero-info">
 
-        <h3 class="text-center">{{ nickname }} - {{ level }} lvl</h3>
+        <h4 class="text-center">{{ nickname }} - {{ level }} lvl</h4>
 
 
         <v-progress-linear color="orange-lighten-1" :model-value="experience * 100 / requiredExperience" :height="18">
@@ -25,3 +25,16 @@ const { nickname, experience, requiredExperience, level, stamina } = storeToRefs
 
     </v-card>
 </template>
+
+<style scoped>
+.hero-info {
+    width: 400px;
+}
+
+
+@media only screen and (max-width: 700px) {
+    .hero-info {
+    width: 150px;
+}
+}
+</style>

@@ -77,7 +77,6 @@ export const useHeroStore = defineStore("hero", {
             }
         },
         win(val) {
-            console.log(val)
             this.experience += val * 1.2
             this.addLevel()
             this.totalMobsKilled++
@@ -102,7 +101,7 @@ export const useHeroStore = defineStore("hero", {
                 const draw = Math.floor(Math.random() * 100) + 1
                 if (draw <= result) {
                     this.win(itemModifier)
-                    return "You Won !"
+                    return `You Won ! ${this.backpack[this.backpack.length - 1].itemRarity} item added to backpack`
                 } else return "Fight Lost !"
             } else return "Not Enough Stamina !"
         },
@@ -124,13 +123,14 @@ export const useHeroStore = defineStore("hero", {
             const rarity = this.calculateRarity()
             const score = Math.floor(enemyValue + Math.pow(rarities.indexOf(rarity), 2))
             const value = Math.pow(rarities.indexOf(rarity) + 1, 2)
+            const item = itemsPool[type][rarity][Math.floor(Math.random() * itemsPool[type][rarity].length)]
 
             this.backpack.push(
                 {
                     itemId: Math.floor(Math.random() * 10000000000),
                     itemType: type,
-                    itemImg: itemsPool[type][rarity][Math.floor(Math.random() * itemsPool[type][rarity].length)].img,
-                    itemName: itemsPool[type][rarity][Math.floor(Math.random() * itemsPool[type][rarity].length)].name,
+                    itemImg: item.img,
+                    itemName: item.name,
                     itemPowerScore: score,
                     itemValue: value,
                     itemRarity: rarity,

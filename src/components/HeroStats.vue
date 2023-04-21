@@ -6,7 +6,7 @@ const { stamina, seconds, gold, power } = storeToRefs(store)
 </script>
 
 <template>
-    <v-card class="d-flex flex-column align-center justify-center background">
+    <v-card class="d-flex align-center justify-center background stats-card">
 
         <v-btn prepend-icon="mdi-sword">
             {{ power }}
@@ -21,10 +21,22 @@ const { stamina, seconds, gold, power } = storeToRefs(store)
         <v-btn prepend-icon="mdi-flask">
             <div v-if="stamina < 20"> +1 in {{ seconds }}</div>
             <div v-else> MAX</div>
-
             <v-tooltip activator="parent" location="right">Stamina regeneration</v-tooltip>
         </v-btn>
 
     </v-card>
 </template>
+
+<style scoped>
+.stats-card {
+    flex-direction: column;
+}
+
+@media only screen and (max-width: 450px) {
+    .stats-card {
+        display: flex;
+        flex-direction: row;
+    }
+}
+</style>
  

@@ -27,8 +27,8 @@ const attackOpponent = (power, itemModifier) => {
 
 <template>
     <v-card class="mt-15" max-width="400">
-        <v-img class="align-end text-white" height="300" width="400" :src="routeId.background" cover>
-            <v-img class="mx-auto" width="100" :src="routeId.difficulty[chosenDifficulty].img"></v-img>
+        <v-img class="align-end text-white combat-background" :src="routeId.background" cover>
+            <v-img class="mx-auto combat-monster" :src="routeId.difficulty[chosenDifficulty].img"></v-img>
             <v-card-title class="text-center text-uppercase bg-red-darken-4">{{
                 routeId.difficulty[chosenDifficulty].monsterName }}</v-card-title>
         </v-img>
@@ -38,7 +38,9 @@ const attackOpponent = (power, itemModifier) => {
 
         <v-card-actions class="d-flex flex-column ">
 
-            <v-btn @click="attackOpponent(routeId.difficulty[chosenDifficulty].power, routeId.difficulty[chosenDifficulty].itemDropModifier)" value="recent" width="200">
+            <v-btn
+                @click="attackOpponent(routeId.difficulty[chosenDifficulty].power, routeId.difficulty[chosenDifficulty].itemDropModifier)"
+                value="recent" width="200">
                 <v-icon>mdi-sword</v-icon>
                 Attack
             </v-btn>
@@ -50,3 +52,25 @@ const attackOpponent = (power, itemModifier) => {
         </v-card-actions>
     </v-card>
 </template>
+
+<style scoped>
+.combat-background {
+    height: 300px;
+    width: 400px;
+}
+
+.combat-monster {
+    height: 100px;
+}
+
+@media only screen and (max-width: 500px) {
+    .combat-background {
+        height: 200px;
+        width: 264px;
+    }
+
+    .combat-monster {
+        height: 66px;
+    }
+}
+</style>
