@@ -19,8 +19,8 @@ const emitQuit = () => {
     emit("quit")
 }
 
-const attackOpponent = (val) => {
-    activateSnackbar(true, attack(val))
+const attackOpponent = (power, itemModifier) => {
+    activateSnackbar(true, attack(power, itemModifier))
 }
 
 </script>
@@ -38,7 +38,7 @@ const attackOpponent = (val) => {
 
         <v-card-actions class="d-flex flex-column ">
 
-            <v-btn @click="attackOpponent(routeId.difficulty[chosenDifficulty].power)" value="recent" width="200">
+            <v-btn @click="attackOpponent(routeId.difficulty[chosenDifficulty].power, routeId.difficulty[chosenDifficulty].itemDropModifier)" value="recent" width="200">
                 <v-icon>mdi-sword</v-icon>
                 Attack
             </v-btn>

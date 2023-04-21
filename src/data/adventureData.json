@@ -10,17 +10,19 @@
                 "monsterName": "deer",
                 "img": "https://micc.garmory-cdn.cloud/obrazki/npc/zwi/bestia54.gif",
                 "power": 1,
-                "itemDropPower": 1
+                "itemDropModifier": 2
             },
             "normal": {
                 "monsterName": "Snake",
                 "img": "https://micc.garmory-cdn.cloud/obrazki/npc/zwi/wonsz-zwykly.gif",
-                "power": 3
+                "power": 5,
+                "itemDropModifier": 4
             },
             "hard": {
                 "monsterName": "Wolf",
                 "img": "https://micc.garmory-cdn.cloud/obrazki/npc/zwi/wilk_czarny1.gif",
-                "power": 5
+                "power": 16,
+                "itemDropModifier": 5
             }
         }
     },
@@ -34,17 +36,20 @@
             "easy": {
                 "monsterName": "Bear",
                 "img": "https://micc.garmory-cdn.cloud/obrazki/npc/zwi/mis_brunatny1.gif",
-                "power": 6
+                "power": 21,
+                "itemDropModifier": 6
             },
             "normal": {
                 "monsterName": "Ghost",
                 "img": "https://micc.garmory-cdn.cloud/obrazki/npc/pot/bestia26.gif",
-                "power": 8
+                "power": 28,
+                "itemDropModifier": 8
             },
             "hard": {
                 "monsterName": "Ghoul",
                 "img": "https://micc.garmory-cdn.cloud/obrazki/npc/hum/ghul1-a.gif",
-                "power": 10
+                "power": 35,
+                "itemDropModifier": 10
             }
         }
     },
@@ -58,17 +63,20 @@
             "easy": {
                 "monsterName": "warrior spirit",
                 "img": "https://micc.garmory-cdn.cloud/obrazki/npc/tru/tri_ghost3b.gif",
-                "power": 11
+                "power": 44,
+                "itemDropModifier": 11
             },
             "normal": {
                 "monsterName": "Witch",
                 "img": "https://micc.garmory-cdn.cloud/obrazki/npc/kob/tri_witch_5a.gif",
-                "power": 13
+                "power": 52,
+                "itemDropModifier": 13
             },
             "hard": {
                 "monsterName": "Abandoned soul",
                 "img": "https://micc.garmory-cdn.cloud/obrazki/npc/tru/tri_ghost4.gif",
-                "power": 15
+                "power": 60,
+                "itemDropModifier": 15
             }
         }
     },
@@ -82,20 +90,20 @@
             "easy": {
                 "monsterName": "Snow Tiger",
                 "img": "https://micc.garmory-cdn.cloud/obrazki/npc/zwi/tygrys_sniez2.gif",
-                "power": 16
+                "power": 68,
+                "itemDropModifier": 16
             },
             "normal": {
                 "monsterName": "Passage Guardian",
                 "img": "https://micc.garmory-cdn.cloud/obrazki/npc/hum/straznik-anda1b.gif",
-                "power": 18
+                "power": 75,
+                "itemDropModifier": 18
             },
             "hard": {
                 "monsterName": "Icy Queen",
                 "img": "https://micc.garmory-cdn.cloud/obrazki/npc/e2/krolowa-sniegu.gif",
-                "power": 20,
-                "rewards": {
-                    "exp": 20
-                }
+                "power": 82,
+                "itemDropModifier": 20
             }
         }
     },
@@ -109,20 +117,20 @@
             "easy": {
                 "monsterName": "Glimmer",
                 "img": "https://micc.garmory-cdn.cloud/obrazki/npc/pot/plom02.gif",
-                "power": 21
+                "power": 90,
+                "itemDropModifier": 21
             },
             "normal": {
                 "monsterName": "Lava Golem",
                 "img": "https://micc.garmory-cdn.cloud/obrazki/npc/pot/lava_golem01-a.gif",
-                "power": 23,
-                "rewards": {
-                    "exp": 23
-                }
+                "power": 98,
+                "itemDropModifier": 23
             },
             "hard": {
                 "monsterName": "volcano blacksmith",
                 "img": "https://micc.garmory-cdn.cloud/obrazki/npc/e2/worundriel02.gif",
-                "power": 25
+                "power": 105,
+                "itemDropModifier": 25
             }
         }
     },
@@ -136,17 +144,20 @@
             "easy": {
                 "monsterName": "bloody torturer",
                 "img": "https://micc.garmory-cdn.cloud/obrazki/npc/e2/sekta-gothardus.gif",
-                "power": 26
+                "power": 115,
+                "itemDropModifier": 26
             },
             "normal": {
                 "monsterName": "heart eater",
                 "img": "https://micc.garmory-cdn.cloud/obrazki/npc/e2/sekta-zufulus.gif",
-                "power": 28
+                "power": 130,
+                "itemDropModifier": 28
             },
             "hard": {
                 "monsterName": "ancient evil",
                 "img": "https://micc.garmory-cdn.cloud/obrazki/npc/tyt/archdemon.gif",
-                "power": 30
+                "power": 145,
+                "itemDropModifier": 30
             }
         }
     }

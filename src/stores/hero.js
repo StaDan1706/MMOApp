@@ -76,27 +76,24 @@ export const useHeroStore = defineStore("hero", {
                 this.requiredExperience = Math.pow((this.level * 1.5), 2)
             }
         },
-        win(num) {
-            this.experience += num * 1.2
+        win(val) {
+            console.log(val)
+            this.experience += val * 1.2
             this.addLevel()
             this.totalMobsKilled++
-            this.itemGenerator(num)
+            this.itemGenerator(val)
         },
 
         calculateChance(val) {
             if (this.power >= val) {
                 return 100
-            } else if (this.power >= val - 2) {
-                return 50
             } else if (this.power >= val - 4) {
-                return 10
-            } else {
-                return 0
-            }
+                return 50
+            } else return 0
         },
 
 
-        attack(opponentPower) {
+        attack(opponentPower, itemModifier) {
             if (this.backpack.length >= 21) {
                 return "No inventory space, sell items to keep fighting"
             }
@@ -104,7 +101,7 @@ export const useHeroStore = defineStore("hero", {
                 const result = this.calculateChance(opponentPower)
                 const draw = Math.floor(Math.random() * 100) + 1
                 if (draw <= result) {
-                    this.win(opponentPower)
+                    this.win(itemModifier)
                     return "You Won !"
                 } else return "Fight Lost !"
             } else return "Not Enough Stamina !"
