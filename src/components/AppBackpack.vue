@@ -1,9 +1,19 @@
 <script setup>
+import { ref } from 'vue';
 import { useHeroStore } from '../stores/hero';
 import { storeToRefs } from 'pinia';
 import ItemTooltip from './ItemTooltip.vue';
 const store = useHeroStore()
 const { backpack } = storeToRefs(store)
+const toggleAction = ref("Equip")
+
+const useItem = (item, event) => {
+    if (toggleAction.value == "Equip") {
+        store.equipItem(item)
+    } else {
+        store.sellItem(item, event)
+    }
+}
 
 </script>
 
@@ -11,12 +21,19 @@ const { backpack } = storeToRefs(store)
     <div class="bp-container d-flex flex-wrap justify-center">
         <v-card v-for="n in 21" :key="n" class="cell" elevation="10">
             <div v-if="backpack[n - 1]">
-                <v-img @click="store.equipItem(backpack[n - 1])" @click.right="store.sellItem(backpack[n - 1], $event)"
-                    :class="backpack[n - 1].itemRarity + ' item'" :src="backpack[n - 1].itemImg"></v-img>
+                <v-img @click="useItem(backpack[n - 1], $event)" :class="backpack[n - 1].itemRarity + ' item'"
+                    :src="backpack[n - 1].itemImg"></v-img>
 
                 <ItemTooltip :item="backpack[n - 1]" />
             </div>
         </v-card>
+    </div>
+    <div class="d-flex flex-column align-center g-grey-lighten-4 pa-6">
+        <v-btn-toggle v-model="toggleAction" color="primary" mandatory>
+            <v-btn icon="mdi-shield-outline" value="Equip"></v-btn>
+            <v-btn icon="mdi-sack" value="Sell"></v-btn>
+        </v-btn-toggle>
+        <pre class="pt-2">Mode : {{ toggleAction }}</pre>
     </div>
 </template>
 
